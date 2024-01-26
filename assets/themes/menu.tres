@@ -1,0 +1,12 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://c28v14rnpfts1"]
+
+[ext_resource type="FontFile" uid="uid://d3eocon0jwqlt" path="res://assets/fonts/OpenType-TT/Sweater Winter 1.0.ttf" id="1_r58e1"]
+
+[resource]
+Button/colors/font_color = Color(0.415686, 0.870588, 0.215686, 1)
+Button/constants/h_separation = 4
+Button/font_sizes/font_size = 20
+Button/fonts/font = ExtResource("1_r58e1")
+Label/colors/font_color = Color(0.376471, 0.772549, 0.203922, 1)
+Label/font_sizes/font_size = 50
+Label/fonts/font = ExtResource("1_r58e1")
