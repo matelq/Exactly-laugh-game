@@ -1,12 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://bunr2xs701qoj"]
+[gd_scene load_steps=4 format=3 uid="uid://bunr2xs701qoj"]
 
 [ext_resource type="Script" path="res://src/main_character/character.gd" id="1_w8k8l"]
 [ext_resource type="PackedScene" uid="uid://dshjkonp866gb" path="res://assets/Mayor-character/mayor-idle-animation.aseprite" id="2_ft6p2"]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l7yvk"]
+radius = 8.0
+height = 46.0
+
 [node name="Character" type="Area2D"]
 script = ExtResource("1_w8k8l")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+metadata/_edit_group_ = true
 
 [node name="mayor-idle-animation" parent="." instance=ExtResource("2_ft6p2")]
 texture_filter = 3
+frame = 2
+frame_progress = 0.602988
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4, 2)
+shape = SubResource("CapsuleShape2D_l7yvk")
