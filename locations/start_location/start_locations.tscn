@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://cukuba1f4tyor"]
-
-[ext_resource type="Script" path="res://locations/start_location/start_locations.gd" id="1_t08g7"]
-
-[node name="StartLocations" type="Node2D"]
-script = ExtResource("1_t08g7")
