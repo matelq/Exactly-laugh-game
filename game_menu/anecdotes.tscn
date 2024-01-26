@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://dnwqcij2nfljk"]
+
+[ext_resource type="Script" path="res://game_menu/anecdotes.gd" id="1_kek5x"]
+
+[node name="Anecdotes" type="Node2D"]
+script = ExtResource("1_kek5x")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 19.0
+offset_top = 34.0
+offset_right = 1130.0
+offset_bottom = 189.0
+text = "Попали на остров с папуасами скуф, фембой и альтушка, выходит вождь и говорит им:
+-Вы зашли в старый анекдот, мы не способны понять парадигму новых вещей и темпа течения времени, чтобы понятливо высмеивать современные тренды, но если что - можете всегда засунуть себе анус в ананас."
+autowrap_mode = 2
+
+[node name="BackButton" type="Button" parent="."]
+offset_left = 11.0
+offset_top = 609.0
+offset_right = 68.0
+offset_bottom = 640.0
+text = "Назад"
+
+[node name="NextButton" type="Button" parent="."]
+offset_left = 983.0
+offset_top = 605.0
+offset_right = 1136.0
+offset_bottom = 636.0
+text = "Так не смежно же"
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
