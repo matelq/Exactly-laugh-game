@@ -11,10 +11,10 @@ func _process(delta):
 
 
 func _on_start_button_pressed():
-	get_tree().change_scene_to_file("res://main.tscn")
+	get_tree().change_scene_to_file("res://src/main.tscn")
 
 func _on_options_button_pressed():
-	get_tree().change_scene_to_file("res://game_menu/anecdotes.tscn")
+	get_tree().change_scene_to_file("res://src//game_menu/anecdotes.tscn")
 
 func _on_quit_button_pressed():
 	get_tree().quit()
