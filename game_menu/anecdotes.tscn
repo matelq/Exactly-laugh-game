@@ -5,7 +5,7 @@
 [node name="Anecdotes" type="Node2D"]
 script = ExtResource("1_kek5x")
 
-[node name="Label" type="Label" parent="."]
+[node name="Anecdore" type="Label" parent="."]
 offset_left = 19.0
 offset_top = 34.0
 offset_right = 1130.0
@@ -29,3 +29,4 @@ offset_bottom = 636.0
 text = "Так не смежно же"
 
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="NextButton" to="." method="_on_next_button_pressed"]
