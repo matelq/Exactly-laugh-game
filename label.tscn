@@ -8,3 +8,8 @@ offset_bottom = 309.0
 text = "GOOD DOUBRO"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="test purpose" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
