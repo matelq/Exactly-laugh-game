@@ -13,5 +13,8 @@ vertical_alignment = 1
 
 [node name="test purpose" type="Label" parent="."]
 layout_mode = 0
+offset_left = -119.0
+offset_top = -82.0
 offset_right = 40.0
 offset_bottom = 23.0
+text = "я видел трусы"
