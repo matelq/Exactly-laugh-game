@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://i50hbda7qmd1"
+path="res://.godot/imported/parking_lot.dialogue-ad4faca5c3abbbb5112a128352ea9c8c.tres"
+
+[deps]
+
+source_file="res://src/locations/parking_lot/parking_lot.dialogue"
+dest_files=["res://.godot/imported/parking_lot.dialogue-ad4faca5c3abbbb5112a128352ea9c8c.tres"]
+
+[params]
+
+defaults=true
