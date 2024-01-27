@@ -46,8 +46,10 @@ func start_fight():
 var curr_dialogue = 1
 
 func _on_enemy_damage_taken(value):
+	$CharacterBody2D.handle_user_input(false)
 	var dialogue = load("res://src/locations/parking_lot/parking_lot.dialogue")
 	var ballon: Node = Ballon.instantiate()
+	get_tree().current_scene.add_child(ballon)
 	var pos = ""
 	if curr_dialogue == 1:
 		pos = "First"
