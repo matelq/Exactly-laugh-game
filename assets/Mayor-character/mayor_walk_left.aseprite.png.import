@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b8x2xo3pp0hln"
-path="res://.godot/imported/mayor_walk_right_strip8.png-2cf735e0b841f322e8f0aceace1f66c2.ctex"
+uid="uid://c5iofkwmp2wh3"
+path="res://.godot/imported/mayor_walk_left.aseprite.png-cc4628ebfc4b9d0658bc63b9ec168a3e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Mayor-character/mayor_walk_right_strip8.png"
-dest_files=["res://.godot/imported/mayor_walk_right_strip8.png-2cf735e0b841f322e8f0aceace1f66c2.ctex"]
+source_file="res://assets/Mayor-character/mayor_walk_left.aseprite.png"
+dest_files=["res://.godot/imported/mayor_walk_left.aseprite.png-cc4628ebfc4b9d0658bc63b9ec168a3e.ctex"]
 
 [params]
 

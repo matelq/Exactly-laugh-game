@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bidmvslxmd01k"]
+[gd_scene load_steps=5 format=3 uid="uid://bidmvslxmd01k"]
 
 [ext_resource type="PackedScene" uid="uid://bunr2xs701qoj" path="res://src/main_character/character.tscn" id="1_p46vo"]
 [ext_resource type="PackedScene" uid="uid://cukuba1f4tyor" path="res://src/locations/start_location/start_location.tscn" id="2_x3xir"]
+[ext_resource type="PackedScene" uid="uid://dm1412p21cw0q" path="res://src/camera/camera.tscn" id="2_x7b0j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pq6na"]
 size = Vector2(786, 33)
@@ -9,11 +10,18 @@ size = Vector2(786, 33)
 [node name="TestScene" type="Node2D"]
 
 [node name="Character" parent="." instance=ExtResource("1_p46vo")]
-position = Vector2(225, 343)
+position = Vector2(394, 142)
 
 [node name="Start_location" parent="." instance=ExtResource("2_x3xir")]
 position = Vector2(0, 400)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Start_location"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Start_location"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Start_location/StaticBody2D"]
 position = Vector2(393, 16.5)
 shape = SubResource("RectangleShape2D_pq6na")
+
+[node name="Camera" parent="." node_paths=PackedStringArray("followNode") instance=ExtResource("2_x7b0j")]
+position = Vector2(394, 142)
+zoom = Vector2(2, 2)
+followNode = NodePath("../Character")
