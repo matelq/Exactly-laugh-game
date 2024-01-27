@@ -4,7 +4,7 @@ extends CharacterBody2D
 @export var max_speed = 1000
 @export var acceleration = 2500
 @export var friction = 800
-
+@export var gravityEnabled = true
 #const SPEED = 300.0
 @export var JUMP_VELOCITY = -100.0
 
@@ -28,6 +28,7 @@ func _physics_process(delta):
 func get_input():
 	var input = Vector2.ZERO
 	input.x = int(Input.is_action_pressed("right")) - int(Input.is_action_pressed("left"))
+	input.y = int(Input.is_action_pressed("down")) - int(Input.is_action_pressed("up"))
 	
 	var is_jump = false
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
@@ -42,11 +43,7 @@ func get_input():
 	return result
 
 func handle_player_animations():
-	if (velocity.x > 0):
-		show_play_animation($mayor_walk_right2)
-	elif (velocity.x < 0):
-		show_play_animation($mayor_walk_left2)
-	elif (velocity.length() == 0):
+	if (velocity.length() == 0):
 		if (Input.is_action_pressed("rightF")):
 			$mayor_walk_middleF.flip_h = false
 			show_play_animation($mayor_walk_middleF)
@@ -55,6 +52,22 @@ func handle_player_animations():
 			show_play_animation($mayor_walk_middleF)
 		else:
 			show_play_animation($"mayor-idle-animation2")
+		return
+	
+	if (abs(velocity.x) > abs(velocity.x)) or gravityEnabled:
+		# x axe animations
+		if (velocity.x > 0):
+			show_play_animation($mayor_walk_right2)
+		elif (velocity.x < 0):
+			show_play_animation($mayor_walk_left2)
+	else:
+		# y axe animations
+		if (velocity.y > 0):
+			show_play_animation($mayor_walk_forward)
+		elif (velocity.y < 0):
+			show_play_animation($mayor_walk_backward)
+
+
 	
 
 
@@ -69,14 +82,10 @@ func reset_animations_besides(sprite: AnimatedSprite2D):
 			continue
 		item.hide()
 		item.set_frame(0)
-
-func reset_animation(sprite: AnimatedSprite2D):
-	sprite.hide()
-	sprite.set_frame(0)
 	
 
 func player_movement(delta):
-	if not is_on_floor():
+	if not is_on_floor() and gravityEnabled:
 		velocity.y += gravity * delta
 	
 	var input_result = get_input()
@@ -92,6 +101,16 @@ func player_movement(delta):
 	else:
 		velocity.x += (input_vector.x * acceleration * delta)
 		velocity.x = min(abs(velocity.x), max_speed) * sign(velocity.x)
+	
+	if !gravityEnabled:
+		if input_vector.y == 0:
+			if abs(velocity.y) > (friction * delta):
+				velocity.y -= friction * delta * sign(velocity.y)
+			else:
+				velocity.y = 0
+		else:
+			velocity.y += (input_vector.y * acceleration * delta)
+			velocity.y = min(abs(velocity.y), max_speed) * sign(velocity.y)
 	
 	if is_jump and is_on_floor():
 		velocity.y += JUMP_VELOCITY

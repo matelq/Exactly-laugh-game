@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://u7ojfdl2lj2t"]
+
+[ext_resource type="Texture2D" uid="uid://h733stw21yek" path="res://assets/locations/Resto2.0/resto_inside.png" id="1_0j384"]
+[ext_resource type="PackedScene" uid="uid://bunr2xs701qoj" path="res://src/main_character/character.tscn" id="2_i54in"]
+
+[node name="Resto_inside" type="Node"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 3
+offset_left = -377.0
+offset_top = -519.0
+offset_right = 375.0
+offset_bottom = 510.0
+texture = ExtResource("1_0j384")
+flip_h = true
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("2_i54in")]
+gravityEnabled = false
