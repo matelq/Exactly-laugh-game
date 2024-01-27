@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvunugjskwwl3"]
+
+[ext_resource type="Texture2D" uid="uid://bkbo04fh1wrb" path="res://assets/locations/parking_lot/bg.png" id="1_0syrb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s825q"]
+size = Vector2(1219, 20)
+
+[node name="ParkingLotPeacefull" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1217.0
+offset_bottom = 654.0
+texture = ExtResource("1_0syrb")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(608.5, 643)
+shape = SubResource("RectangleShape2D_s825q")
