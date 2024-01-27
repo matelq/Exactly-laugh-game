@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bunr2xs701qoj"]
+[gd_scene load_steps=22 format=3 uid="uid://bunr2xs701qoj"]
 
 [ext_resource type="Script" path="res://src/main_character/CharacterBody2D.gd" id="2_5e083"]
 [ext_resource type="PackedScene" uid="uid://dshjkonp866gb" path="res://assets/Mayor-character/mayor-idle-animation.aseprite" id="2_ft6p2"]
@@ -97,6 +97,10 @@ animations = [{
 "speed": 1.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_57igi"]
+radius = 3.99999
+height = 25.9999
+
 [node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("2_5e083")
 max_speed = 100
@@ -105,7 +109,6 @@ friction = 300
 JUMP_VELOCITY = 0.0
 
 [node name="mayor-idle-animation2" parent="." instance=ExtResource("2_ft6p2")]
-visible = false
 texture_filter = 3
 position = Vector2(5, 0)
 scale = Vector2(1.5, 1.5)
@@ -114,32 +117,30 @@ frame = 2
 frame_progress = 0.191737
 
 [node name="mayor_walk_right2" parent="." instance=ExtResource("4_2hqid")]
-visible = false
 texture_filter = 3
 position = Vector2(0, 2)
 scale = Vector2(1.5, 1.5)
 frame_progress = 0.937029
 
 [node name="mayor_walk_left2" parent="." instance=ExtResource("5_ageb0")]
-visible = false
 texture_filter = 3
 position = Vector2(0, 2)
 scale = Vector2(1.5, 1.5)
+frame = 4
+frame_progress = 0.433245
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+[node name="MainCollider" type="CollisionShape2D" parent="."]
 visible = false
 position = Vector2(-1, 5)
 shape = SubResource("CapsuleShape2D_l7yvk")
 
 [node name="mayor_walk_middleF" parent="." instance=ExtResource("5_oq17p")]
-visible = false
 texture_filter = 3
 position = Vector2(0, 3)
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_fcv4t")
 
 [node name="mayor_walk_forward" parent="." instance=ExtResource("6_paa56")]
-visible = false
 texture_filter = 3
 position = Vector2(5, -2)
 scale = Vector2(1.6, 1.6)
@@ -148,3 +149,8 @@ scale = Vector2(1.6, 1.6)
 texture_filter = 3
 position = Vector2(6, -2)
 scale = Vector2(1.6, 1.6)
+
+[node name="TopDownCollider" type="CollisionShape2D" parent="."]
+position = Vector2(-7.45058e-09, 37)
+rotation = 1.5731
+shape = SubResource("CapsuleShape2D_57igi")

@@ -4,7 +4,7 @@ extends CharacterBody2D
 @export var max_speed = 1000
 @export var acceleration = 2500
 @export var friction = 800
-@export var gravityEnabled = true
+@export var isLeftRight = true
 #const SPEED = 300.0
 @export var JUMP_VELOCITY = -100.0
 @export var animationVelocityThreshold = 10
@@ -16,6 +16,12 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var animated_sprites: Array = []
 
 func _ready():
+	if isLeftRight:
+		$MainCollider.disabled = false
+		$TopDownCollider.disabled = true
+	else:
+		$MainCollider.disabled = true
+		$TopDownCollider.disabled = false
 	# Iterate through the children of the current node
 	for child in get_children():
 		# Check if the child is an AnimatedSprite2D node
@@ -55,7 +61,7 @@ func handle_player_animations():
 			show_play_animation($"mayor-idle-animation2")
 		return
 
-	if (abs(velocity.y) < animationVelocityThreshold) or gravityEnabled:
+	if (abs(velocity.y) < animationVelocityThreshold) or isLeftRight:
 		# x axe animations
 		if (velocity.x > 0):
 			show_play_animation($mayor_walk_right2)
@@ -83,7 +89,7 @@ func reset_animations_besides(sprite: AnimatedSprite2D):
 	
 
 func player_movement(delta):
-	if not is_on_floor() and gravityEnabled:
+	if not is_on_floor() and isLeftRight:
 		velocity.y += gravity * delta
 	
 	var input_result = get_input()
@@ -100,7 +106,7 @@ func player_movement(delta):
 		velocity.x += (input_vector.x * acceleration * delta)
 		velocity.x = min(abs(velocity.x), max_speed) * sign(velocity.x)
 	
-	if !gravityEnabled:
+	if !isLeftRight:
 		if input_vector.y == 0:
 			if abs(velocity.y) > (friction * delta):
 				velocity.y -= friction * delta * sign(velocity.y)
