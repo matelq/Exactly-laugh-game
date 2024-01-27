@@ -22,12 +22,6 @@ var is_animation_stopped = false
 signal collided_with_staticBody
 
 func _ready():
-	if isLeftRight:
-		$MainCollider.disabled = false
-		$TopDownCollider.disabled = true
-	else:
-		$MainCollider.disabled = true
-		$TopDownCollider.disabled = false
 	# Iterate through the children of the current node
 	for child in get_children():
 		# Check if the child is an AnimatedSprite2D node
@@ -35,6 +29,13 @@ func _ready():
 			animated_sprites.append(child)
 
 func _physics_process(delta):
+	if isLeftRight:
+		$MainCollider.disabled = false
+		$TopDownCollider.disabled = true
+	else:
+		$MainCollider.disabled = true
+		$TopDownCollider.disabled = false
+	
 	player_movement(delta)
 	handle_player_animations()
 	

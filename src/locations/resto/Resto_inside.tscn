@@ -258,4 +258,3 @@ metadata/_edit_group_ = true
 [node name="door_collider" type="CollisionShape2D" parent="door_body"]
 position = Vector2(-239, -52)
 shape = SubResource("RectangleShape2D_0h1h0")
-disabled = true
