@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bto31cwakir3"]
+[gd_scene load_steps=18 format=3 uid="uid://bto31cwakir3"]
 
 [ext_resource type="Texture2D" uid="uid://6vadbyu8vew5" path="res://assets/locations/apartment/tv_room.png" id="1_6yu3e"]
 [ext_resource type="Script" path="res://src/locations/apartment/apartment.gd" id="1_qm0i4"]
@@ -22,11 +22,23 @@ size = Vector2(55, 1028)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3fkv5"]
 size = Vector2(203, 1039)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4uoyq"]
+size = Vector2(1324, 25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mv4tg"]
+size = Vector2(133, 844)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_38tgf"]
+size = Vector2(144, 891)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4oyfu"]
-size = Vector2(777, 20)
+size = Vector2(763, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nyork"]
-size = Vector2(246, 530)
+size = Vector2(88, 499)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ct25m"]
+size = Vector2(45, 471)
 
 [node name="Apartment" type="Node2D"]
 script = ExtResource("1_qm0i4")
@@ -34,7 +46,7 @@ min_size = 4.5
 max_size = 9.5
 
 [node name="Player" parent="." instance=ExtResource("1_st6s8")]
-position = Vector2(346, 474)
+position = Vector2(354, 484)
 scale = Vector2(6, 6)
 max_speed = 200
 acceleration = 1600
@@ -42,6 +54,7 @@ friction = 600
 isLeftRight = false
 
 [node name="textures" type="Node2D" parent="."]
+metadata/_edit_group_ = true
 
 [node name="tv_room" type="TextureRect" parent="textures"]
 z_index = -1
@@ -67,6 +80,7 @@ offset_bottom = 1024.0
 texture = ExtResource("4_hwnl4")
 
 [node name="colliders" type="Node2D" parent="."]
+metadata/_edit_group_ = true
 
 [node name="tv_room_colliders" type="Node2D" parent="colliders"]
 
@@ -88,7 +102,6 @@ shape = SubResource("RectangleShape2D_elkfe")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="colliders/tv_room_colliders/StaticBody2D3"]
 position = Vector2(856.356, 666.903)
 rotation = 0.217413
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_pim8s")
 
 [node name="StaticBody2D4" type="StaticBody2D" parent="colliders/tv_room_colliders"]
@@ -109,25 +122,50 @@ shape = SubResource("RectangleShape2D_3fkv5")
 
 [node name="kitchen" type="Node2D" parent="colliders"]
 
+[node name="StaticBody2D6" type="StaticBody2D" parent="colliders/kitchen"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="colliders/kitchen/StaticBody2D6"]
+position = Vector2(2054, 867.5)
+shape = SubResource("RectangleShape2D_4uoyq")
+
+[node name="StaticBody2D7" type="StaticBody2D" parent="colliders/kitchen"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="colliders/kitchen/StaticBody2D7"]
+position = Vector2(2601, 442)
+shape = SubResource("RectangleShape2D_mv4tg")
+
+[node name="StaticBody2D8" type="StaticBody2D" parent="colliders/kitchen"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="colliders/kitchen/StaticBody2D8"]
+position = Vector2(1443, 442.5)
+shape = SubResource("RectangleShape2D_38tgf")
+
 [node name="game_logic_colliders" type="Node2D" parent="."]
 
-[node name="tv_room_exit" type="StaticBody2D" parent="game_logic_colliders"]
+[node name="tv_room_exit" type="Area2D" parent="game_logic_colliders"]
 
 [node name="tv_room_exit_collider" type="CollisionShape2D" parent="game_logic_colliders/tv_room_exit"]
-position = Vector2(579.5, 1013)
+position = Vector2(580.5, 1013)
 shape = SubResource("RectangleShape2D_4oyfu")
 debug_color = Color(0.937255, 0.219608, 0.321569, 0.419608)
 
-[node name="kitchen_room" type="StaticBody2D" parent="game_logic_colliders"]
+[node name="kitchen_exit" type="Area2D" parent="game_logic_colliders"]
 
-[node name="kitchen_exit_collider" type="CollisionShape2D" parent="game_logic_colliders/kitchen_room"]
-position = Vector2(2376, 526)
+[node name="kitchen_exit_collider" type="CollisionShape2D" parent="game_logic_colliders/kitchen_exit"]
+position = Vector2(2379, 514.5)
 shape = SubResource("RectangleShape2D_nyork")
 debug_color = Color(0.898039, 0.290196, 0.345098, 0.419608)
 
-[node name="StaticBody2D3" type="StaticBody2D" parent="game_logic_colliders"]
+[node name="kitchen_to_tv_room" type="Area2D" parent="game_logic_colliders"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="game_logic_colliders/StaticBody2D3"]
+[node name="kitchen_to_tv_room" type="CollisionShape2D" parent="game_logic_colliders/kitchen_to_tv_room"]
+position = Vector2(1539.5, 616.5)
+shape = SubResource("RectangleShape2D_ct25m")
+debug_color = Color(0.996078, 0, 0.2, 0.419608)
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="game_logic_colliders"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="game_logic_colliders/StaticBody2D4"]
 
 [node name="Camera" parent="." node_paths=PackedStringArray("followNode") instance=ExtResource("6_egwj7")]
 limit_left = 0
@@ -137,3 +175,8 @@ limit_bottom = 1024
 editor_draw_limits = true
 followNode = NodePath("../Player")
 limits = [0, 0, 1024, 1024]
+
+[connection signal="body_entered" from="game_logic_colliders/tv_room_exit" to="." method="_on_tv_room_exit_body_entered"]
+[connection signal="body_entered" from="game_logic_colliders/kitchen_exit" to="." method="_on_kitchen_exit_body_entered"]
+[connection signal="body_exited" from="game_logic_colliders/kitchen_exit" to="." method="_on_kitchen_exit_body_exited"]
+[connection signal="body_entered" from="game_logic_colliders/kitchen_to_tv_room" to="." method="_on_kitchen_to_tv_room_body_entered"]

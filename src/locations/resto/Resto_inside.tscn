@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dfi37wr07cmx4" path="res://assets/locations/Resto2.0/restogood/resto_base.png" id="2_wtvc2"]
 [ext_resource type="PackedScene" uid="uid://dm1412p21cw0q" path="res://src/camera/camera.tscn" id="3_618lp"]
 [ext_resource type="Texture2D" uid="uid://bjfl1l1ruplef" path="res://assets/locations/Resto2.0/restogood/downpart.png" id="3_q7ehf"]
+[ext_resource type="PackedScene" uid="uid://ckqyewyklobb8" path="res://src/emeny/enemy.tscn" id="4_bbqjc"]
 [ext_resource type="Texture2D" uid="uid://c61mg57sh6gd8" path="res://assets/locations/Resto2.0/restogood/door_opened.png" id="4_cm6sm"]
 [ext_resource type="Texture2D" uid="uid://bdjcyq2vrhnnh" path="res://assets/locations/Resto2.0/restogood/door_closed.png" id="5_qbtke"]
 [ext_resource type="PackedScene" uid="uid://b5fyhefvmho62" path="res://src/puzzle/code.tscn" id="9_fen87"]
@@ -124,6 +125,9 @@ offset_bottom = 1028.0
 texture = ExtResource("5_qbtke")
 flip_h = true
 
+[node name="TextureRect#Enemy" parent="." instance=ExtResource("4_bbqjc")]
+position = Vector2(-2, -155)
+
 [node name="static_scene_collider" type="Node2D" parent="."]
 position = Vector2(-379, -521)
 
@@ -142,7 +146,7 @@ position = Vector2(66.2405, 4140.53)
 shape = SubResource("RectangleShape2D_vj50t")
 
 [node name="Area2D3" type="StaticBody2D" parent="static_scene_collider"]
-position = Vector2(656, 0)
+position = Vector2(-247.162, 7628.26)
 scale = Vector2(1.03576, 0.12434)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="static_scene_collider/Area2D3"]

@@ -9,19 +9,19 @@ extends CharacterBody2D
 @export var JUMP_VELOCITY = -100.0
 @export var animationVelocityThreshold = 10
 
+var handle_input = true
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 # Define a list to store AnimatedSprite2D nodes
 var animated_sprites: Array = []
 
+var is_animation_stopped = false
+
+signal collided_with_staticBody
+
 func _ready():
-	if isLeftRight:
-		$MainCollider.disabled = false
-		$TopDownCollider.disabled = true
-	else:
-		$MainCollider.disabled = true
-		$TopDownCollider.disabled = false
 	# Iterate through the children of the current node
 	for child in get_children():
 		# Check if the child is an AnimatedSprite2D node
@@ -29,6 +29,13 @@ func _ready():
 			animated_sprites.append(child)
 
 func _physics_process(delta):
+	if isLeftRight:
+		$MainCollider.disabled = false
+		$TopDownCollider.disabled = true
+	else:
+		$MainCollider.disabled = true
+		$TopDownCollider.disabled = false
+	
 	player_movement(delta)
 	handle_player_animations()
 	
@@ -50,17 +57,22 @@ func get_input():
 	return result
 
 func handle_player_animations():
+	if not handle_input:
+		return
 	if (velocity.length() == 0):
 		if (Input.is_action_pressed("rightF")):
-			$mayor_walk_middleF.flip_h = false
+			$mayor_walk_middleF.scale.x = abs($mayor_walk_middleF.scale.x)
+			$mayor_walk_middleF/HitBox/CollisionShape2D.disabled = false
 			show_play_animation($mayor_walk_middleF)
+			$mayor_walk_middleF/HitBox/CollisionShape2D.disabled = true
 		elif (Input.is_action_pressed("leftF")):
-			$mayor_walk_middleF.flip_h = true
+			$mayor_walk_middleF.scale.x = -abs($mayor_walk_middleF.scale.x)
 			show_play_animation($mayor_walk_middleF)
-		else:
+		elif not is_animation_stopped:
 			show_play_animation($"mayor-idle-animation2")
 		return
-
+	
+	is_animation_stopped = false
 	if (abs(velocity.y) < animationVelocityThreshold) or isLeftRight:
 		# x axe animations
 		if (velocity.x > 0):
@@ -92,6 +104,11 @@ func player_movement(delta):
 	if not is_on_floor() and isLeftRight:
 		velocity.y += gravity * delta
 	
+	if not handle_input:
+		move_and_slide()
+		process_collisions()
+		return
+	
 	var input_result = get_input()
 
 	var input_vector = input_result["input"]
@@ -118,12 +135,25 @@ func player_movement(delta):
 	
 	if is_jump and is_on_floor():
 		velocity.y += JUMP_VELOCITY
-	
-	
-
 	move_and_slide()
+	process_collisions()
+
+func look_right():
+	is_animation_stopped = true
+	var sprite = $mayor_walk_right2
+	show_play_animation(sprite)
+	sprite.stop()
+	
+func do_the_idle():
+	var sprite = $"mayor-idle-animation2"
+	show_play_animation(sprite)
+
+func process_collisions():
+	for i in get_slide_collision_count():
+		var col = get_slide_collision(i)
+		if col.get_collider() is StaticBody2D:
+			collided_with_staticBody.emit()
 
 
-
-
-	 
+func handle_user_input(value: bool):
+	handle_input = value
