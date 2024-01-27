@@ -73,7 +73,7 @@ func handle_player_animations():
 		return
 	
 	is_animation_stopped = false
-	if (abs(velocity.y) < animationVelocityThreshold) or gravityEnabled:
+	if (abs(velocity.y) < animationVelocityThreshold) or isLeftRight:
 		# x axe animations
 		if (velocity.x > 0):
 			show_play_animation($mayor_walk_right2)

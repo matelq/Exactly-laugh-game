@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bunr2xs701qoj"]
+[gd_scene load_steps=22 format=3 uid="uid://bunr2xs701qoj"]
 
 [ext_resource type="Script" path="res://src/main_character/CharacterBody2D.gd" id="2_5e083"]
 [ext_resource type="PackedScene" uid="uid://dshjkonp866gb" path="res://assets/Mayor-character/mayor-idle-animation.aseprite" id="2_ft6p2"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://crl8l622vu7db" path="res://assets/Mayor-character/mayor_walk_left.aseprite" id="5_ageb0"]
 [ext_resource type="PackedScene" uid="uid://daieabospeug" path="res://assets/Mayor-character/mayor_walk_middleF.aseprite" id="5_oq17p"]
 [ext_resource type="PackedScene" uid="uid://dtmc1mh877w2r" path="res://assets/Mayor-character/mayor_walk_forward.aseprite" id="6_paa56"]
-[ext_resource type="Script" path="res://src/HitBox.gd" id="6_sp63s"]
 [ext_resource type="PackedScene" uid="uid://cm1mvh8iacr8t" path="res://assets/Mayor-character/mayor_walk_backward.aseprite" id="7_2xo1i"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8hqbj"]
@@ -98,8 +97,6 @@ animations = [{
 "speed": 1.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5l4sl"]
-size = Vector2(20, 6.66667)
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_57igi"]
 radius = 3.99999
 height = 25.9999
@@ -142,15 +139,6 @@ texture_filter = 3
 position = Vector2(0, 3)
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_fcv4t")
-frame_progress = 0.878165
-
-[node name="HitBox" type="Area2D" parent="mayor_walk_middleF"]
-script = ExtResource("6_sp63s")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="mayor_walk_middleF/HitBox"]
-position = Vector2(16, -2)
-shape = SubResource("RectangleShape2D_5l4sl")
-disabled = true
 
 [node name="mayor_walk_forward" parent="." instance=ExtResource("6_paa56")]
 texture_filter = 3
@@ -158,11 +146,9 @@ position = Vector2(5, -2)
 scale = Vector2(1.6, 1.6)
 
 [node name="mayor_walk_backward" parent="." instance=ExtResource("7_2xo1i")]
-visible = false
 texture_filter = 3
 position = Vector2(6, -2)
 scale = Vector2(1.6, 1.6)
-frame_progress = 0.693993
 
 [node name="TopDownCollider" type="CollisionShape2D" parent="."]
 position = Vector2(-7.45058e-09, 37)

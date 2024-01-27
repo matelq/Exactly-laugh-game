@@ -102,7 +102,6 @@ shape = SubResource("RectangleShape2D_elkfe")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="colliders/tv_room_colliders/StaticBody2D3"]
 position = Vector2(856.356, 666.903)
 rotation = 0.217413
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_pim8s")
 
 [node name="StaticBody2D4" type="StaticBody2D" parent="colliders/tv_room_colliders"]

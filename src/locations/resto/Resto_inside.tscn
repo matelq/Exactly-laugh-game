@@ -1,11 +1,11 @@
-[gd_scene load_steps=23 format=3 uid="uid://u7ojfdl2lj2t"]
+[gd_scene load_steps=24 format=3 uid="uid://u7ojfdl2lj2t"]
 
 [ext_resource type="Texture2D" uid="uid://c0oewyfo6rsw" path="res://assets/locations/Resto2.0/restogood/toilet_bottom.png" id="1_g2467"]
 [ext_resource type="PackedScene" uid="uid://bunr2xs701qoj" path="res://src/main_character/character.tscn" id="2_i54in"]
 [ext_resource type="Texture2D" uid="uid://dfi37wr07cmx4" path="res://assets/locations/Resto2.0/restogood/resto_base.png" id="2_wtvc2"]
 [ext_resource type="PackedScene" uid="uid://dm1412p21cw0q" path="res://src/camera/camera.tscn" id="3_618lp"]
-[ext_resource type="PackedScene" uid="uid://ckqyewyklobb8" path="res://src/emeny/enemy.tscn" id="4_bbqjc"]
 [ext_resource type="Texture2D" uid="uid://bjfl1l1ruplef" path="res://assets/locations/Resto2.0/restogood/downpart.png" id="3_q7ehf"]
+[ext_resource type="PackedScene" uid="uid://ckqyewyklobb8" path="res://src/emeny/enemy.tscn" id="4_bbqjc"]
 [ext_resource type="Texture2D" uid="uid://c61mg57sh6gd8" path="res://assets/locations/Resto2.0/restogood/door_opened.png" id="4_cm6sm"]
 [ext_resource type="Texture2D" uid="uid://bdjcyq2vrhnnh" path="res://assets/locations/Resto2.0/restogood/door_closed.png" id="5_qbtke"]
 
@@ -57,7 +57,7 @@ size = Vector2(33, 14)
 [node name="Resto_inside" type="Node"]
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("2_i54in")]
-position = Vector2(-309, -158)
+position = Vector2(152, 167)
 isLeftRight = false
 animationVelocityThreshold = 60
 
@@ -77,12 +77,6 @@ offset_bottom = 508.0
 texture = ExtResource("1_g2467")
 flip_h = true
 
-[node name="Enemy" parent="TextureRect" instance=ExtResource("4_bbqjc")]
-position = Vector2(381, 372)
-
-[node name="CharacterBody2D" parent="TextureRect" instance=ExtResource("2_i54in")]
-position = Vector2(244, 840)
-gravityEnabled = false
 [node name="resto_base" type="TextureRect" parent="textures/static textures"]
 z_index = -1
 texture_filter = 3
@@ -103,8 +97,6 @@ offset_bottom = 508.0
 texture = ExtResource("3_q7ehf")
 flip_h = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TextureRect/Area2D"]
-position = Vector2(78, 519)
 [node name="door_textures" type="Node2D" parent="textures"]
 position = Vector2(-377, -521)
 metadata/_edit_group_ = true
@@ -129,6 +121,9 @@ offset_bottom = 1028.0
 texture = ExtResource("5_qbtke")
 flip_h = true
 
+[node name="TextureRect#Enemy" parent="." instance=ExtResource("4_bbqjc")]
+position = Vector2(-2, -155)
+
 [node name="static_scene_collider" type="Node2D" parent="."]
 position = Vector2(-379, -521)
 
@@ -136,28 +131,22 @@ position = Vector2(-379, -521)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="static_scene_collider/Area2D"]
 position = Vector2(55, 694.75)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_3jk6t")
 
 [node name="Area2D2" type="StaticBody2D" parent="static_scene_collider"]
 position = Vector2(656, 0)
 scale = Vector2(1.03576, 0.12434)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TextureRect/Area2D2"]
-position = Vector2(64.7923, 4148.57)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="static_scene_collider/Area2D2"]
 position = Vector2(66.2405, 4140.53)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_vj50t")
 
 [node name="Area2D3" type="StaticBody2D" parent="static_scene_collider"]
-position = Vector2(656, 0)
+position = Vector2(-247.162, 7628.26)
 scale = Vector2(1.03576, 0.12434)
 
-position = Vector2(-247.162, 7628.26)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="static_scene_collider/Area2D3"]
 position = Vector2(-248.127, 7889.64)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_7hbul")
 
 [node name="Area2D4" type="StaticBody2D" parent="static_scene_collider"]
@@ -173,11 +162,8 @@ shape = SubResource("RectangleShape2D_rrrs6")
 position = Vector2(523, 496)
 scale = Vector2(1.03576, 0.12434)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TextureRect/Area2D5"]
-position = Vector2(-122.443, -2211.67)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="static_scene_collider/Area2D5"]
 position = Vector2(-153.993, -1977.95)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_gexya")
 
 [node name="Area2D6" type="StaticBody2D" parent="static_scene_collider"]
