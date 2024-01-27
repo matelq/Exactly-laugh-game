@@ -92,6 +92,7 @@ func START_DIALOG_WITH_MUDAK_FOR_MATVEY():
 # ТУТ НАДО ПЕРЕХОД НА СЛЕД СЦЕНУ ПОСЛЕ ДИАЛОГА
 # ДРАКА ДРАКА ДРАКА!!!!!
 func next_location():
+	get_tree().change_scene_to_file("res://src/locations/parking_lot/parking_lot.tscn") 
 	pass
 
 func _on_enemy_dialog_body_entered(body):
