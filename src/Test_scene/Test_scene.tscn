@@ -36,7 +36,6 @@ limit_right = 1935
 limit_bottom = 432
 editor_draw_limits = true
 followNode = NodePath("../Character")
-limits = [0, 0, 1900, 430]
 
 [node name="Parallax" parent="." instance=ExtResource("4_w4m52")]
 position = Vector2(-2, 400)

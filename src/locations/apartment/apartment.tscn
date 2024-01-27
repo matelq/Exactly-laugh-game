@@ -41,10 +41,12 @@ size = Vector2(88, 499)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ct25m"]
 size = Vector2(45, 471)
 
-[node name="Apartment" type="Node2D"]
+[node name="Apartment" type="Node2D" node_paths=PackedStringArray("tv_room_teleport", "kitchen_teleport")]
 script = ExtResource("1_qm0i4")
 min_size = 4.5
 max_size = 9.5
+tv_room_teleport = NodePath("game_logic_colliders/tv_room_teleport")
+kitchen_teleport = NodePath("game_logic_colliders/kitchen_teleport")
 
 [node name="Player" parent="." instance=ExtResource("1_st6s8")]
 position = Vector2(354, 484)
@@ -67,16 +69,16 @@ texture = ExtResource("1_6yu3e")
 [node name="kitchen" type="TextureRect" parent="textures"]
 z_index = -1
 texture_filter = 3
-offset_left = 1512.0
-offset_right = 2536.0
+offset_left = 6922.0
+offset_right = 7946.0
 offset_bottom = 1024.0
 texture = ExtResource("2_wnscf")
 
 [node name="kitchen_stol" type="TextureRect" parent="textures"]
 z_index = 1
 texture_filter = 3
-offset_left = 1512.0
-offset_right = 2536.0
+offset_left = 6922.0
+offset_right = 7946.0
 offset_bottom = 1024.0
 texture = ExtResource("4_hwnl4")
 
@@ -122,6 +124,7 @@ shape = SubResource("RectangleShape2D_3fkv5")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="colliders/tv_room_colliders/StaticBody2D6"]
 
 [node name="kitchen" type="Node2D" parent="colliders"]
+position = Vector2(5410, 0)
 
 [node name="StaticBody2D6" type="StaticBody2D" parent="colliders/kitchen"]
 
@@ -151,6 +154,7 @@ shape = SubResource("RectangleShape2D_4oyfu")
 debug_color = Color(0.937255, 0.219608, 0.321569, 0.419608)
 
 [node name="kitchen_exit" type="Area2D" parent="game_logic_colliders"]
+position = Vector2(5410, 0)
 
 [node name="kitchen_exit_collider" type="CollisionShape2D" parent="game_logic_colliders/kitchen_exit"]
 position = Vector2(2379, 514.5)
@@ -158,6 +162,7 @@ shape = SubResource("RectangleShape2D_nyork")
 debug_color = Color(0.898039, 0.290196, 0.345098, 0.419608)
 
 [node name="kitchen_to_tv_room" type="Area2D" parent="game_logic_colliders"]
+position = Vector2(5410, 0)
 
 [node name="kitchen_to_tv_room" type="CollisionShape2D" parent="game_logic_colliders/kitchen_to_tv_room"]
 position = Vector2(1539.5, 616.5)
@@ -168,14 +173,16 @@ debug_color = Color(0.996078, 0, 0.2, 0.419608)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="game_logic_colliders/StaticBody2D4"]
 
+[node name="kitchen_teleport" type="Node2D" parent="game_logic_colliders"]
+position = Vector2(7079, 804)
+
+[node name="tv_room_teleport" type="Node2D" parent="game_logic_colliders"]
+position = Vector2(561, 619)
+
 [node name="Camera" parent="." node_paths=PackedStringArray("followNode") instance=ExtResource("6_egwj7")]
-limit_left = 0
-limit_top = 0
-limit_right = 1024
-limit_bottom = 1024
+zoom = Vector2(0.75, 0.75)
 editor_draw_limits = true
 followNode = NodePath("../Player")
-limits = [0, 0, 1024, 1024]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_utcp5")
