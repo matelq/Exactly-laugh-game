@@ -62,3 +62,9 @@ func _on_enemy_damage_taken(value):
 	
 func next_scene():
 	pass
+
+func _on_intro_finished():
+	$FightTheme.play()
+
+func _on_fight_theme_finished():
+	$FightTheme.play()
