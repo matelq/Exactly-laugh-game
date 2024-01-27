@@ -20,9 +20,9 @@ func _process(delta):
 		$progress_label.hide()
 	pass
 	
-	if isDoorDialog:
-		if not is_E:
+	if not is_E:
 			return
+	if isDoorDialog:
 		$door_label.show()
 		if Input.is_action_just_pressed("E"):
 			if get_node("/root/GlobalContext").is_code_active_lock:
@@ -43,9 +43,7 @@ func _process(delta):
 		$enemy_label.hide()
 	
 func SEVUHA_ENEMY_MAKER_DIALOG_CHALLENGER():
-	print("kill")
-	pass
-
+	START_DIALOG_WITH_MUDAK_FOR_MATVEY()
 
 var is_E = true
 func release_E():
