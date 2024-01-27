@@ -16,7 +16,8 @@ var player_can_exit_kitchen = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-		# Access the root node of your scene, which is usually the main viewport
+	var dialog = load("res://src/locations/apartment/aparts.dialogue")
+	DialogueManager.show_example_dialogue_balloon(dialog, "start")
 	RenderingServer.set_default_clear_color(tv_room_color)
 
 
