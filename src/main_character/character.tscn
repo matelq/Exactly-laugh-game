@@ -1,10 +1,12 @@
-[gd_scene load_steps=19 format=3 uid="uid://bunr2xs701qoj"]
+[gd_scene load_steps=21 format=3 uid="uid://bunr2xs701qoj"]
 
 [ext_resource type="Script" path="res://src/main_character/CharacterBody2D.gd" id="2_5e083"]
 [ext_resource type="PackedScene" uid="uid://dshjkonp866gb" path="res://assets/Mayor-character/mayor-idle-animation.aseprite" id="2_ft6p2"]
 [ext_resource type="PackedScene" uid="uid://c74c7uutmpa37" path="res://assets/Mayor-character/mayor_walk_right.aseprite" id="4_2hqid"]
 [ext_resource type="PackedScene" uid="uid://crl8l622vu7db" path="res://assets/Mayor-character/mayor_walk_left.aseprite" id="5_ageb0"]
 [ext_resource type="PackedScene" uid="uid://daieabospeug" path="res://assets/Mayor-character/mayor_walk_middleF.aseprite" id="5_oq17p"]
+[ext_resource type="PackedScene" uid="uid://dtmc1mh877w2r" path="res://assets/Mayor-character/mayor_walk_forward.aseprite" id="6_paa56"]
+[ext_resource type="PackedScene" uid="uid://cm1mvh8iacr8t" path="res://assets/Mayor-character/mayor_walk_backward.aseprite" id="7_2xo1i"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8hqbj"]
 load_path = "res://.godot/imported/mayor-idle-animation.aseprite.png-901699abfe8b785b6fd7c2a88e7e47b7.ctex"
@@ -100,8 +102,10 @@ script = ExtResource("2_5e083")
 max_speed = 100
 acceleration = 800
 friction = 300
+JUMP_VELOCITY = 0.0
 
 [node name="mayor-idle-animation2" parent="." instance=ExtResource("2_ft6p2")]
+visible = false
 texture_filter = 3
 position = Vector2(5, 0)
 scale = Vector2(1.5, 1.5)
@@ -110,22 +114,37 @@ frame = 2
 frame_progress = 0.191737
 
 [node name="mayor_walk_right2" parent="." instance=ExtResource("4_2hqid")]
+visible = false
 texture_filter = 3
 position = Vector2(0, 2)
 scale = Vector2(1.5, 1.5)
 frame_progress = 0.937029
 
 [node name="mayor_walk_left2" parent="." instance=ExtResource("5_ageb0")]
+visible = false
 texture_filter = 3
 position = Vector2(0, 2)
 scale = Vector2(1.5, 1.5)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(-1, 5)
 shape = SubResource("CapsuleShape2D_l7yvk")
 
 [node name="mayor_walk_middleF" parent="." instance=ExtResource("5_oq17p")]
+visible = false
 texture_filter = 3
 position = Vector2(0, 3)
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_fcv4t")
+
+[node name="mayor_walk_forward" parent="." instance=ExtResource("6_paa56")]
+visible = false
+texture_filter = 3
+position = Vector2(5, -2)
+scale = Vector2(1.6, 1.6)
+
+[node name="mayor_walk_backward" parent="." instance=ExtResource("7_2xo1i")]
+texture_filter = 3
+position = Vector2(6, -2)
+scale = Vector2(1.6, 1.6)
