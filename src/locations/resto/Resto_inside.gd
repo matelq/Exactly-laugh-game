@@ -31,6 +31,7 @@ func _on_code_enter_button():
 
 
 func _on_exit_to_parking_body_entered(body):
+	get_tree().change_scene_to_file("res://src/locations/parking_lot_peacefull/ParkingLotPeacefull.tscn") 
 	isNextSceneCollide = true
 	pass # Replace with function body.
 

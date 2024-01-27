@@ -11,6 +11,9 @@
 [ext_resource type="Texture2D" uid="uid://bdjcyq2vrhnnh" path="res://assets/locations/Resto2.0/restogood/door_closed.png" id="5_qbtke"]
 [ext_resource type="PackedScene" uid="uid://b5fyhefvmho62" path="res://src/puzzle/code.tscn" id="9_fen87"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3biyt"]
+size = Vector2(128, 19.5)
+
 [sub_resource type="LabelSettings" id="LabelSettings_5fti3"]
 font_size = 24
 
@@ -62,11 +65,17 @@ size = Vector2(667, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0h1h0"]
 size = Vector2(33, 14)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3biyt"]
-size = Vector2(60, 61)
-
 [node name="Resto_inside" type="Node"]
 script = ExtResource("1_4fev4")
+
+[node name="exit_to_parking" type="Area2D" parent="."]
+position = Vector2(3, 10)
+
+[node name="exit_to_parking_collider" type="CollisionShape2D" parent="exit_to_parking"]
+z_index = 45
+position = Vector2(33, 430)
+shape = SubResource("RectangleShape2D_3biyt")
+debug_color = Color(0.992157, 0.0235294, 0.247059, 0.419608)
 
 [node name="progress_label" type="Label" parent="."]
 z_index = 10
@@ -78,7 +87,7 @@ text = "Enter..."
 label_settings = SubResource("LabelSettings_5fti3")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("2_i54in")]
-position = Vector2(33, 377)
+position = Vector2(30, 385)
 isLeftRight = false
 animationVelocityThreshold = 60
 
@@ -277,13 +286,6 @@ visible = false
 z_index = 2
 position = Vector2(-719, -549)
 
-[node name="exit_to_parking" type="Area2D" parent="."]
-
-[node name="exit_to_parking_collider" type="CollisionShape2D" parent="exit_to_parking"]
-position = Vector2(31, 402.5)
-shape = SubResource("RectangleShape2D_3biyt")
-debug_color = Color(0.992157, 0.0235294, 0.247059, 0.419608)
-
-[connection signal="enter_button" from="Code" to="." method="_on_code_enter_button"]
 [connection signal="body_entered" from="exit_to_parking" to="." method="_on_exit_to_parking_body_entered"]
 [connection signal="body_exited" from="exit_to_parking" to="." method="_on_exit_to_parking_body_exited"]
+[connection signal="enter_button" from="Code" to="." method="_on_code_enter_button"]
