@@ -7,6 +7,7 @@ extends CharacterBody2D
 @export var gravityEnabled = true
 #const SPEED = 300.0
 @export var JUMP_VELOCITY = -100.0
+@export var animationVelocityThreshold = 10
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -27,6 +28,7 @@ func _physics_process(delta):
 	
 func get_input():
 	var input = Vector2.ZERO
+	
 	input.x = int(Input.is_action_pressed("right")) - int(Input.is_action_pressed("left"))
 	input.y = int(Input.is_action_pressed("down")) - int(Input.is_action_pressed("up"))
 	
@@ -36,10 +38,9 @@ func get_input():
 	
 	# Create a dictionary to hold the values
 	var result = {
-		"input": input,
+		"input": input.normalized(),
 		"is_jump": is_jump
-	}
-	
+	}	
 	return result
 
 func handle_player_animations():
@@ -53,8 +54,8 @@ func handle_player_animations():
 		else:
 			show_play_animation($"mayor-idle-animation2")
 		return
-	
-	if (abs(velocity.x) > abs(velocity.x)) or gravityEnabled:
+
+	if (abs(velocity.y) < animationVelocityThreshold) or gravityEnabled:
 		# x axe animations
 		if (velocity.x > 0):
 			show_play_animation($mayor_walk_right2)
@@ -66,9 +67,6 @@ func handle_player_animations():
 			show_play_animation($mayor_walk_forward)
 		elif (velocity.y < 0):
 			show_play_animation($mayor_walk_backward)
-
-
-	
 
 
 func show_play_animation(sprite: AnimatedSprite2D):
@@ -115,7 +113,10 @@ func player_movement(delta):
 	if is_jump and is_on_floor():
 		velocity.y += JUMP_VELOCITY
 	
+	
+
 	move_and_slide()
+
 
 
 
