@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bto31cwakir3"]
+[gd_scene load_steps=20 format=3 uid="uid://bto31cwakir3"]
 
 [ext_resource type="Texture2D" uid="uid://6vadbyu8vew5" path="res://assets/locations/apartment/tv_room.png" id="1_6yu3e"]
 [ext_resource type="Script" path="res://src/locations/apartment/apartment.gd" id="1_qm0i4"]
@@ -27,7 +27,7 @@ size = Vector2(203, 1039)
 size = Vector2(1324, 25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mv4tg"]
-size = Vector2(133, 844)
+size = Vector2(152.5, 844)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_38tgf"]
 size = Vector2(144, 891)
@@ -40,6 +40,9 @@ size = Vector2(88, 499)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ct25m"]
 size = Vector2(45, 471)
+
+[sub_resource type="LabelSettings" id="LabelSettings_oixl5"]
+font_size = 44
 
 [node name="Apartment" type="Node2D" node_paths=PackedStringArray("tv_room_teleport", "kitchen_teleport")]
 script = ExtResource("1_qm0i4")
@@ -135,7 +138,7 @@ shape = SubResource("RectangleShape2D_4uoyq")
 [node name="StaticBody2D7" type="StaticBody2D" parent="colliders/kitchen"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="colliders/kitchen/StaticBody2D7"]
-position = Vector2(2601, 442)
+position = Vector2(2591.25, 442)
 shape = SubResource("RectangleShape2D_mv4tg")
 
 [node name="StaticBody2D8" type="StaticBody2D" parent="colliders/kitchen"]
@@ -187,6 +190,14 @@ followNode = NodePath("../Player")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_utcp5")
 autoplay = true
+
+[node name="tip_to_enter" type="Label" parent="."]
+offset_left = 7733.0
+offset_top = 922.0
+offset_right = 7942.0
+offset_bottom = 983.0
+text = "Enter..."
+label_settings = SubResource("LabelSettings_oixl5")
 
 [connection signal="body_entered" from="game_logic_colliders/tv_room_exit" to="." method="_on_tv_room_exit_body_entered"]
 [connection signal="body_entered" from="game_logic_colliders/kitchen_exit" to="." method="_on_kitchen_exit_body_entered"]

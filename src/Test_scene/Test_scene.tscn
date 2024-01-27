@@ -11,7 +11,7 @@ size = Vector2(1934, 33)
 [node name="TestScene" type="Node2D"]
 
 [node name="Character" parent="." instance=ExtResource("1_p46vo")]
-position = Vector2(35, 356)
+position = Vector2(359, 356)
 
 [node name="Start_location" parent="." instance=ExtResource("2_x3xir")]
 texture_filter = 3

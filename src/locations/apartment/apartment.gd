@@ -22,9 +22,13 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if player_can_exit_kitchen and Input.is_action_just_pressed("ui_accept"):
-		# next location progress
-		print("YOU SHOULD TELEPORT!")
+	if player_can_exit_kitchen:
+		$tip_to_enter.show()
+		if Input.is_action_just_pressed("ui_accept"):
+			# next location progress
+			print("YOU SHOULD TELEPORT!")
+	else:
+		$tip_to_enter.hide()
 	$Player.scale.x = min_size + ($Player.position.y - min_y)/(max_y - min_y)*(max_size - min_size)
 	$Player.scale.y = min_size + ($Player.position.y - min_y)/(max_y - min_y)*(max_size - min_size)
 	pass
