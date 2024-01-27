@@ -146,11 +146,7 @@ texture_filter = 3
 position = Vector2(0, 3)
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_fcv4t")
-<<<<<<< Updated upstream
-frame_progress = 0.428311
-=======
 frame_progress = 0.531098
->>>>>>> Stashed changes
 
 [node name="HitBox" type="Area2D" parent="mayor_walk_middleF"]
 script = ExtResource("6_sp63s")
