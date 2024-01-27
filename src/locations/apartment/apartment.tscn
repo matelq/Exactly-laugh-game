@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bto31cwakir3"]
+[gd_scene load_steps=19 format=3 uid="uid://bto31cwakir3"]
 
 [ext_resource type="Texture2D" uid="uid://6vadbyu8vew5" path="res://assets/locations/apartment/tv_room.png" id="1_6yu3e"]
 [ext_resource type="Script" path="res://src/locations/apartment/apartment.gd" id="1_qm0i4"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://deyemnfn4pakp" path="res://assets/locations/apartment/kitchen.png" id="2_wnscf"]
 [ext_resource type="Texture2D" uid="uid://6y2vbbprq7nd" path="res://assets/locations/apartment/kitchen_stol.png" id="4_hwnl4"]
 [ext_resource type="PackedScene" uid="uid://dm1412p21cw0q" path="res://src/camera/camera.tscn" id="6_egwj7"]
+[ext_resource type="AudioStream" uid="uid://c6a62hfmcyksl" path="res://assets/ost/realize.wav" id="7_utcp5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_co6w7"]
 size = Vector2(59, 309)
@@ -176,7 +177,12 @@ editor_draw_limits = true
 followNode = NodePath("../Player")
 limits = [0, 0, 1024, 1024]
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_utcp5")
+autoplay = true
+
 [connection signal="body_entered" from="game_logic_colliders/tv_room_exit" to="." method="_on_tv_room_exit_body_entered"]
 [connection signal="body_entered" from="game_logic_colliders/kitchen_exit" to="." method="_on_kitchen_exit_body_entered"]
 [connection signal="body_exited" from="game_logic_colliders/kitchen_exit" to="." method="_on_kitchen_exit_body_exited"]
 [connection signal="body_entered" from="game_logic_colliders/kitchen_to_tv_room" to="." method="_on_kitchen_to_tv_room_body_entered"]
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]

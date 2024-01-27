@@ -1,0 +1,138 @@
+[gd_scene load_steps=14 format=3 uid="uid://bto31cwakir3"]
+
+[ext_resource type="Texture2D" uid="uid://6vadbyu8vew5" path="res://assets/locations/apartment/tv_room.png" id="1_6yu3e"]
+[ext_resource type="Script" path="res://src/locations/apartment/apartment.gd" id="1_qm0i4"]
+[ext_resource type="PackedScene" uid="uid://bunr2xs701qoj" path="res://src/main_character/character.tscn" id="1_st6s8"]
+[ext_resource type="Texture2D" uid="uid://deyemnfn4pakp" path="res://assets/locations/apartment/kitchen.png" id="2_wnscf"]
+[ext_resource type="Texture2D" uid="uid://6y2vbbprq7nd" path="res://assets/locations/apartment/kitchen_stol.png" id="4_hwnl4"]
+[ext_resource type="PackedScene" uid="uid://dm1412p21cw0q" path="res://src/camera/camera.tscn" id="6_egwj7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_co6w7"]
+size = Vector2(59, 309)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_elkfe"]
+size = Vector2(475, 74)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pim8s"]
+size = Vector2(278.317, 121.027)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ekvn"]
+size = Vector2(55, 1028)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3fkv5"]
+size = Vector2(203, 1039)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4oyfu"]
+size = Vector2(777, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nyork"]
+size = Vector2(246, 530)
+
+[node name="Apartment" type="Node2D"]
+script = ExtResource("1_qm0i4")
+min_size = 4.5
+max_size = 9.5
+
+[node name="Player" parent="." instance=ExtResource("1_st6s8")]
+position = Vector2(346, 474)
+scale = Vector2(6, 6)
+max_speed = 200
+acceleration = 1600
+friction = 600
+isLeftRight = false
+
+[node name="textures" type="Node2D" parent="."]
+
+[node name="tv_room" type="TextureRect" parent="textures"]
+z_index = -1
+texture_filter = 3
+offset_right = 1024.0
+offset_bottom = 1024.0
+texture = ExtResource("1_6yu3e")
+
+[node name="kitchen" type="TextureRect" parent="textures"]
+z_index = -1
+texture_filter = 3
+offset_left = 1512.0
+offset_right = 2536.0
+offset_bottom = 1024.0
+texture = ExtResource("2_wnscf")
+
+[node name="kitchen_stol" type="TextureRect" parent="textures"]
+z_index = 1
+texture_filter = 3
+offset_left = 1512.0
+offset_right = 2536.0
+offset_bottom = 1024.0
+texture = ExtResource("4_hwnl4")
+
+[node name="colliders" type="Node2D" parent="."]
+
+[node name="tv_room_colliders" type="Node2D" parent="colliders"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="colliders/tv_room_colliders"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="colliders/tv_room_colliders/StaticBody2D"]
+position = Vector2(179, 701)
+rotation = 0.699852
+shape = SubResource("RectangleShape2D_co6w7")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="colliders/tv_room_colliders"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="colliders/tv_room_colliders/StaticBody2D2"]
+position = Vector2(501.5, 601)
+shape = SubResource("RectangleShape2D_elkfe")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="colliders/tv_room_colliders"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="colliders/tv_room_colliders/StaticBody2D3"]
+position = Vector2(856.356, 666.903)
+rotation = 0.217413
+shape = SubResource("RectangleShape2D_pim8s")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="colliders/tv_room_colliders"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="colliders/tv_room_colliders/StaticBody2D4"]
+position = Vector2(995.5, 518)
+shape = SubResource("RectangleShape2D_6ekvn")
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="colliders/tv_room_colliders"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="colliders/tv_room_colliders/StaticBody2D5"]
+position = Vector2(91.5, 509.5)
+shape = SubResource("RectangleShape2D_3fkv5")
+
+[node name="StaticBody2D6" type="StaticBody2D" parent="colliders/tv_room_colliders"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="colliders/tv_room_colliders/StaticBody2D6"]
+
+[node name="kitchen" type="Node2D" parent="colliders"]
+
+[node name="game_logic_colliders" type="Node2D" parent="."]
+
+[node name="tv_room_exit" type="StaticBody2D" parent="game_logic_colliders"]
+
+[node name="tv_room_exit_collider" type="CollisionShape2D" parent="game_logic_colliders/tv_room_exit"]
+position = Vector2(579.5, 1013)
+shape = SubResource("RectangleShape2D_4oyfu")
+debug_color = Color(0.937255, 0.219608, 0.321569, 0.419608)
+
+[node name="kitchen_room" type="StaticBody2D" parent="game_logic_colliders"]
+
+[node name="kitchen_exit_collider" type="CollisionShape2D" parent="game_logic_colliders/kitchen_room"]
+position = Vector2(2376, 526)
+shape = SubResource("RectangleShape2D_nyork")
+debug_color = Color(0.898039, 0.290196, 0.345098, 0.419608)
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="game_logic_colliders"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="game_logic_colliders/StaticBody2D3"]
+
+[node name="Camera" parent="." node_paths=PackedStringArray("followNode") instance=ExtResource("6_egwj7")]
+limit_left = 0
+limit_top = 0
+limit_right = 1024
+limit_bottom = 1024
+editor_draw_limits = true
+followNode = NodePath("../Player")
+limits = [0, 0, 1024, 1024]

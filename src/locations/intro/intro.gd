@@ -4,7 +4,7 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var resource = load("res://src/locations/intro/intro.dialogue")
-	DialogueManager.show_dialogue_balloon(resource)
+	DialogueManager.show_example_dialogue_balloon(resource)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -30,4 +30,4 @@ func show_frame5():
 	$Control/Frame4.hide()
 
 func end_dialogue():
-	get_tree().change_scene_to_file("res://src/locations/start_location/start_location.tscn")
+	get_tree().change_scene_to_file("res://src/locations/apartment/apartment.tscn")

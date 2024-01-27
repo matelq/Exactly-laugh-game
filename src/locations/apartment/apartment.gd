@@ -55,3 +55,7 @@ func _on_kitchen_exit_body_entered(body):
 func _on_kitchen_exit_body_exited(body):
 	player_can_exit_kitchen = false
 	pass # Replace with function body.
+
+
+func _on_audio_stream_player_finished():
+	$AudioStreamPlayer.play()
