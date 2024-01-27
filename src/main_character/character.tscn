@@ -100,6 +100,9 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5l4sl"]
 size = Vector2(20, 6.66667)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_57igi"]
+radius = 3.99999
+height = 25.9999
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("2_5e083")
@@ -109,7 +112,6 @@ friction = 300
 JUMP_VELOCITY = 0.0
 
 [node name="mayor-idle-animation2" parent="." instance=ExtResource("2_ft6p2")]
-visible = false
 texture_filter = 3
 position = Vector2(5, 0)
 scale = Vector2(1.5, 1.5)
@@ -118,19 +120,19 @@ frame = 2
 frame_progress = 0.191737
 
 [node name="mayor_walk_right2" parent="." instance=ExtResource("4_2hqid")]
-visible = false
 texture_filter = 3
 position = Vector2(0, 2)
 scale = Vector2(1.5, 1.5)
 frame_progress = 0.937029
 
 [node name="mayor_walk_left2" parent="." instance=ExtResource("5_ageb0")]
-visible = false
 texture_filter = 3
 position = Vector2(0, 2)
 scale = Vector2(1.5, 1.5)
+frame = 4
+frame_progress = 0.433245
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+[node name="MainCollider" type="CollisionShape2D" parent="."]
 visible = false
 position = Vector2(-1, 5)
 shape = SubResource("CapsuleShape2D_l7yvk")
@@ -151,7 +153,6 @@ shape = SubResource("RectangleShape2D_5l4sl")
 disabled = true
 
 [node name="mayor_walk_forward" parent="." instance=ExtResource("6_paa56")]
-visible = false
 texture_filter = 3
 position = Vector2(5, -2)
 scale = Vector2(1.6, 1.6)
@@ -162,3 +163,8 @@ texture_filter = 3
 position = Vector2(6, -2)
 scale = Vector2(1.6, 1.6)
 frame_progress = 0.693993
+
+[node name="TopDownCollider" type="CollisionShape2D" parent="."]
+position = Vector2(-7.45058e-09, 37)
+rotation = 1.5731
+shape = SubResource("CapsuleShape2D_57igi")
