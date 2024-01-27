@@ -1,14 +1,14 @@
 [gd_scene load_steps=3 format=3 uid="uid://b5fyhefvmho62"]
 
-[ext_resource type="Script" path="res://Code.gd" id="1_vpsi5"]
+[ext_resource type="Script" path="res://src/puzzle/Code.gd" id="1_vpsi5"]
 [ext_resource type="Texture2D" uid="uid://cfb5rmdvl0yvd" path="res://assets/code/code.jpg" id="2_maf2t"]
 
 [node name="Code" type="Node2D"]
 script = ExtResource("1_vpsi5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(574, 326)
-scale = Vector2(1.11914, 0.634766)
+position = Vector2(452, 454.06)
+scale = Vector2(0.884, 0.888789)
 texture = ExtResource("2_maf2t")
 
 [node name="Button1" type="Button" parent="Sprite2D"]
@@ -81,13 +81,12 @@ offset_right = 228.0
 offset_bottom = 404.0
 flat = true
 
-[node name="TextEdit" type="TextEdit" parent="Sprite2D"]
-offset_left = -221.0
-offset_top = -365.0
-offset_right = 204.0
-offset_bottom = -278.0
+[node name="CodeInput" type="TextEdit" parent="Sprite2D"]
+offset_left = -214.0
+offset_top = -373.0
+offset_right = 197.0
+offset_bottom = -267.0
 theme_override_font_sizes/font_size = 60
-editable = false
 context_menu_enabled = false
 shortcut_keys_enabled = false
 selecting_enabled = false
@@ -95,3 +94,15 @@ deselect_on_focus_loss_enabled = false
 drag_and_drop_selection_enabled = false
 virtual_keyboard_enabled = false
 middle_mouse_paste_enabled = false
+
+[connection signal="pressed" from="Sprite2D/Button1" to="." method="_on_button_1_pressed"]
+[connection signal="pressed" from="Sprite2D/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Sprite2D/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="Sprite2D/Button4" to="." method="_on_button_4_pressed"]
+[connection signal="pressed" from="Sprite2D/Button5" to="." method="_on_button_5_pressed"]
+[connection signal="pressed" from="Sprite2D/Button6" to="." method="_on_button_6_pressed"]
+[connection signal="pressed" from="Sprite2D/Button7" to="." method="_on_button_7_pressed"]
+[connection signal="pressed" from="Sprite2D/Button8" to="." method="_on_button_8_pressed"]
+[connection signal="pressed" from="Sprite2D/Button9" to="." method="_on_button_9_pressed"]
+[connection signal="pressed" from="Sprite2D/ButtonEnter" to="." method="_on_button_enter_pressed"]
+[connection signal="text_set" from="Sprite2D/CodeInput" to="." method="_on_code_input_text_set"]

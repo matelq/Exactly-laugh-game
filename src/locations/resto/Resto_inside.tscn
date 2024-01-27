@@ -1,5 +1,6 @@
-[gd_scene load_steps=23 format=3 uid="uid://u7ojfdl2lj2t"]
+[gd_scene load_steps=25 format=3 uid="uid://u7ojfdl2lj2t"]
 
+[ext_resource type="Script" path="res://src/locations/resto/Resto_inside.gd" id="1_4fev4"]
 [ext_resource type="Texture2D" uid="uid://c0oewyfo6rsw" path="res://assets/locations/Resto2.0/restogood/toilet_bottom.png" id="1_g2467"]
 [ext_resource type="PackedScene" uid="uid://bunr2xs701qoj" path="res://src/main_character/character.tscn" id="2_i54in"]
 [ext_resource type="Texture2D" uid="uid://dfi37wr07cmx4" path="res://assets/locations/Resto2.0/restogood/resto_base.png" id="2_wtvc2"]
@@ -7,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bjfl1l1ruplef" path="res://assets/locations/Resto2.0/restogood/downpart.png" id="3_q7ehf"]
 [ext_resource type="Texture2D" uid="uid://c61mg57sh6gd8" path="res://assets/locations/Resto2.0/restogood/door_opened.png" id="4_cm6sm"]
 [ext_resource type="Texture2D" uid="uid://bdjcyq2vrhnnh" path="res://assets/locations/Resto2.0/restogood/door_closed.png" id="5_qbtke"]
+[ext_resource type="PackedScene" uid="uid://b5fyhefvmho62" path="res://src/puzzle/code.tscn" id="9_fen87"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3jk6t"]
 size = Vector2(73, 581.5)
@@ -54,9 +56,10 @@ size = Vector2(33.5, 27)
 size = Vector2(33, 14)
 
 [node name="Resto_inside" type="Node"]
+script = ExtResource("1_4fev4")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("2_i54in")]
-position = Vector2(-309, -158)
+position = Vector2(31, 375)
 isLeftRight = false
 animationVelocityThreshold = 60
 
@@ -101,7 +104,8 @@ position = Vector2(-377, -521)
 metadata/_edit_group_ = true
 
 [node name="door_opened" type="TextureRect" parent="textures/door_textures"]
-z_index = 2
+visible = false
+z_index = -1
 texture_filter = 3
 offset_left = -6.0
 offset_top = -1.0
@@ -111,7 +115,7 @@ texture = ExtResource("4_cm6sm")
 flip_h = true
 
 [node name="door_closed" type="TextureRect" parent="textures/door_textures"]
-z_index = 2
+z_index = -1
 texture_filter = 3
 offset_left = -6.0
 offset_top = -1.0
@@ -127,7 +131,6 @@ position = Vector2(-379, -521)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="static_scene_collider/Area2D"]
 position = Vector2(55, 694.75)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_3jk6t")
 
 [node name="Area2D2" type="StaticBody2D" parent="static_scene_collider"]
@@ -136,7 +139,6 @@ scale = Vector2(1.03576, 0.12434)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="static_scene_collider/Area2D2"]
 position = Vector2(66.2405, 4140.53)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_vj50t")
 
 [node name="Area2D3" type="StaticBody2D" parent="static_scene_collider"]
@@ -145,7 +147,6 @@ scale = Vector2(1.03576, 0.12434)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="static_scene_collider/Area2D3"]
 position = Vector2(-248.127, 7889.64)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_7hbul")
 
 [node name="Area2D4" type="StaticBody2D" parent="static_scene_collider"]
@@ -163,7 +164,6 @@ scale = Vector2(1.03576, 0.12434)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="static_scene_collider/Area2D5"]
 position = Vector2(-153.993, -1977.95)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_gexya")
 
 [node name="Area2D6" type="StaticBody2D" parent="static_scene_collider"]
@@ -244,4 +244,10 @@ metadata/_edit_group_ = true
 [node name="door_collider" type="CollisionShape2D" parent="door_body"]
 position = Vector2(-239, -52)
 shape = SubResource("RectangleShape2D_0h1h0")
-disabled = true
+
+[node name="Code" parent="." instance=ExtResource("9_fen87")]
+visible = false
+z_index = 2
+position = Vector2(-719, -549)
+
+[connection signal="enter_button" from="Code" to="." method="_on_code_enter_button"]
