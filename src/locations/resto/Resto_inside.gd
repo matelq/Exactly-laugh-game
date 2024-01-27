@@ -2,6 +2,7 @@ extends Node
 
 var isNextSceneCollide = false
 var isDoorDialog = false
+var isEnemyDialog = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -33,6 +34,16 @@ func _process(delta):
 	else:
 		$door_label.hide()
 	
+	if isEnemyDialog:
+		$enemy_label.show()
+		if Input.is_action_just_pressed("E"):
+			SEVUHA_ENEMY_MAKER_DIALOG_CHALLENGER()
+	else:
+		$enemy_label.hide()
+	
+func SEVUHA_ENEMY_MAKER_DIALOG_CHALLENGER():
+	print("kill")
+	pass
 
 func FUNCIA_DLYA_SEVY_ON_DVER_APPROACH_AND_CLICK():
 	print("zalupa")
@@ -64,4 +75,14 @@ func _on_door_dialog_body_entered(body):
 
 func _on_door_dialog_body_exited(body):
 	isDoorDialog = false
+	pass # Replace with function body.
+
+
+func _on_enemy_dialog_body_entered(body):
+	isEnemyDialog = true
+	pass # Replace with function body.
+
+
+func _on_enemy_dialog_body_exited(body):
+	isEnemyDialog = false
 	pass # Replace with function body.
