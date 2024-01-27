@@ -79,12 +79,13 @@ size = Vector2(23, 80)
 script = ExtResource("1_yboef")
 
 [node name="Walk" type="Sprite2D" parent="."]
-visible = false
+texture_filter = 3
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_kj5yp")
 hframes = 5
 
 [node name="Idle" type="Sprite2D" parent="."]
+texture_filter = 3
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("3_6x5yn")
 hframes = 4

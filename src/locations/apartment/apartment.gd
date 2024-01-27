@@ -26,6 +26,7 @@ func _process(delta):
 		$tip_to_enter.show()
 		if Input.is_action_just_pressed("ui_accept"):
 			# next location progress
+			get_tree().change_scene_to_file("res://src/Test_scene/Test_scene.tscn") 
 			print("YOU SHOULD TELEPORT!")
 	else:
 		$tip_to_enter.hide()
