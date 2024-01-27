@@ -18,6 +18,7 @@ var player_can_exit_kitchen = false
 func _ready():
 	var dialog = load("res://src/locations/apartment/aparts.dialogue")
 	DialogueManager.show_example_dialogue_balloon(dialog, "start")
+	$Player.handle_user_input(false)
 	RenderingServer.set_default_clear_color(tv_room_color)
 
 
@@ -73,3 +74,6 @@ func _on_kitchen_exit_body_exited(body):
 
 func _on_audio_stream_player_finished():
 	$AudioStreamPlayer.play()
+	
+func restore_input():
+	$Player.handle_user_input(true)
