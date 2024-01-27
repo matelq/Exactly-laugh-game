@@ -20,6 +20,8 @@ func _process(delta):
 	pass
 	
 	if isDoorDialog:
+		if not is_E:
+			return
 		$door_label.show()
 		if Input.is_action_just_pressed("E"):
 			if get_node("/root/GlobalContext").is_code_active_lock:
@@ -33,10 +35,14 @@ func _process(delta):
 	else:
 		$door_label.hide()
 	
+var is_E = true
+func release_E():
+	is_E = true
 
 func FUNCIA_DLYA_SEVY_ON_DVER_APPROACH_AND_CLICK():
-	print("zalupa")
-	pass
+	is_E = false
+	var dialog = load("res://src/locations/resto/resto.dialogue")
+	DialogueManager.show_example_dialogue_balloon(dialog, "lock")
 
 
 func _on_code_enter_button():
@@ -65,3 +71,15 @@ func _on_door_dialog_body_entered(body):
 func _on_door_dialog_body_exited(body):
 	isDoorDialog = false
 	pass # Replace with function body.
+
+func START_DIALOG_WITH_MUDAK_FOR_MATVEY():
+	is_E = false
+	var dialog = load("res://src/locations/resto/resto.dialogue")
+	DialogueManager.show_example_dialogue_balloon(dialog, "mudak")
+
+# ВНИМАНИЕ!
+# ХУЙ ПИЗДА
+# ТУТ НАДО ПЕРЕХОД НА СЛЕД СЦЕНУ ПОСЛЕ ДИАЛОГА
+# ДРАКА ДРАКА ДРАКА!!!!!
+func next_location():
+	pass
