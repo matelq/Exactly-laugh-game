@@ -1,3 +1,57 @@
-[gd_scene format=3 uid="uid://dplhqvy8o1uh0"]
+[gd_scene load_steps=9 format=3 uid="uid://dplhqvy8o1uh0"]
+
+[ext_resource type="Script" path="res://src/locations/intro/intro.gd" id="1_v1lvy"]
+[ext_resource type="Texture2D" uid="uid://bp8778eaprjj3" path="res://assets/locations/intro/noise.jpg" id="2_tucbs"]
+[ext_resource type="Texture2D" uid="uid://du1ykabk7db0c" path="res://assets/locations/intro/fantasy_aristocracy_portraits_b0b6ecb1.png" id="3_duofs"]
+[ext_resource type="Texture2D" uid="uid://bbjxfnwx1chxc" path="res://assets/locations/intro/fantasy_aristocracy_portraits_20413be1.png" id="3_rnxgk"]
+[ext_resource type="Texture2D" uid="uid://b68vs1s1e4v6g" path="res://assets/locations/intro/fantasy_aristocracy_portraits_66be9283.png" id="4_becgc"]
+[ext_resource type="Texture2D" uid="uid://c8476iek54fpv" path="res://assets/locations/intro/istockphoto-1412460339-640x640.jpg" id="4_huwmr"]
+[ext_resource type="Texture2D" uid="uid://dnba7fpm1md5r" path="res://assets/locations/intro/fantasy_aristocracy_portraits_8b84d2f0.png" id="5_j1y70"]
+[ext_resource type="Texture2D" uid="uid://nuqk6wcmanlr" path="res://assets/locations/intro/fantasy_aristocracy_portraits_e5a21b1a.png" id="6_essye"]
 
 [node name="Intro" type="Node2D"]
+script = ExtResource("1_v1lvy")
+
+[node name="TV" type="Sprite2D" parent="."]
+position = Vector2(575.778, 330)
+scale = Vector2(1.81111, 1.81111)
+texture = ExtResource("4_huwmr")
+
+[node name="Control" type="Control" parent="."]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = 209.0
+offset_top = 82.0
+offset_right = 776.0
+offset_bottom = 528.0
+
+[node name="Frame5" type="Sprite2D" parent="Control"]
+position = Vector2(281, 225)
+scale = Vector2(0.602083, 0.602083)
+texture = ExtResource("3_duofs")
+
+[node name="Frame4" type="Sprite2D" parent="Control"]
+position = Vector2(286.625, 246.625)
+scale = Vector2(0.596615, 0.596615)
+texture = ExtResource("4_becgc")
+
+[node name="Frame3" type="Sprite2D" parent="Control"]
+position = Vector2(283, 175)
+scale = Vector2(0.610417, 0.610417)
+texture = ExtResource("5_j1y70")
+
+[node name="Frame2" type="Sprite2D" parent="Control"]
+position = Vector2(283.25, 263.75)
+scale = Vector2(0.597396, 0.597396)
+texture = ExtResource("6_essye")
+
+[node name="Frame1" type="Sprite2D" parent="Control"]
+position = Vector2(282.469, 224.469)
+scale = Vector2(0.601107, 0.601107)
+texture = ExtResource("3_rnxgk")
+
+[node name="Noise" type="Sprite2D" parent="Control"]
+position = Vector2(341.212, 220)
+scale = Vector2(4.30391, 3.80055)
+texture = ExtResource("2_tucbs")
