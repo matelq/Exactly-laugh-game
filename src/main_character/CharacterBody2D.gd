@@ -5,8 +5,8 @@ extends CharacterBody2D
 @export var acceleration = 2500
 @export var friction = 800
 
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+#const SPEED = 300.0
+@export var JUMP_VELOCITY = -100.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -47,7 +47,15 @@ func handle_player_animations():
 	elif (velocity.x < 0):
 		show_play_animation($mayor_walk_left2)
 	elif (velocity.length() == 0):
-		show_play_animation($"mayor-idle-animation2")
+		if (Input.is_action_pressed("rightF")):
+			$mayor_walk_middleF.flip_h = false
+			show_play_animation($mayor_walk_middleF)
+		elif (Input.is_action_pressed("leftF")):
+			$mayor_walk_middleF.flip_h = true
+			show_play_animation($mayor_walk_middleF)
+		else:
+			show_play_animation($"mayor-idle-animation2")
+	
 
 
 func show_play_animation(sprite: AnimatedSprite2D):
@@ -84,7 +92,9 @@ func player_movement(delta):
 	else:
 		velocity.x += (input_vector.x * acceleration * delta)
 		velocity.x = min(abs(velocity.x), max_speed) * sign(velocity.x)
-	#print(velocity.x)
+	
+	if is_jump and is_on_floor():
+		velocity.y += JUMP_VELOCITY
 	
 	move_and_slide()
 

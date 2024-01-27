@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://bunr2xs701qoj"]
+[gd_scene load_steps=19 format=3 uid="uid://bunr2xs701qoj"]
 
 [ext_resource type="Script" path="res://src/main_character/CharacterBody2D.gd" id="2_5e083"]
 [ext_resource type="PackedScene" uid="uid://dshjkonp866gb" path="res://assets/Mayor-character/mayor-idle-animation.aseprite" id="2_ft6p2"]
 [ext_resource type="PackedScene" uid="uid://c74c7uutmpa37" path="res://assets/Mayor-character/mayor_walk_right.aseprite" id="4_2hqid"]
 [ext_resource type="PackedScene" uid="uid://crl8l622vu7db" path="res://assets/Mayor-character/mayor_walk_left.aseprite" id="5_ageb0"]
+[ext_resource type="PackedScene" uid="uid://daieabospeug" path="res://assets/Mayor-character/mayor_walk_middleF.aseprite" id="5_oq17p"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8hqbj"]
 load_path = "res://.godot/imported/mayor-idle-animation.aseprite.png-901699abfe8b785b6fd7c2a88e7e47b7.ctex"
@@ -51,12 +52,54 @@ animations = [{
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l7yvk"]
 height = 72.0
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ldtl5"]
+load_path = "res://.godot/imported/mayor_walk_middleF.aseprite.png-9fff64dd3e297dda774d9c36db207fd9.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m7txy"]
+atlas = SubResource("CompressedTexture2D_ldtl5")
+region = Rect2(48, 0, 13, 49)
+margin = Rect2(24, 9, 51, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3snhu"]
+atlas = SubResource("CompressedTexture2D_ldtl5")
+region = Rect2(34, 0, 14, 49)
+margin = Rect2(24, 9, 50, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xsf0h"]
+atlas = SubResource("CompressedTexture2D_ldtl5")
+region = Rect2(0, 0, 17, 49)
+margin = Rect2(24, 9, 47, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y32of"]
+atlas = SubResource("CompressedTexture2D_ldtl5")
+region = Rect2(17, 0, 17, 49)
+margin = Rect2(24, 9, 47, 15)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fcv4t"]
+animations = [{
+"frames": [{
+"duration": 0.2,
+"texture": SubResource("AtlasTexture_m7txy")
+}, {
+"duration": 0.2,
+"texture": SubResource("AtlasTexture_3snhu")
+}, {
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_xsf0h")
+}, {
+"duration": 100.0,
+"texture": SubResource("AtlasTexture_y32of")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
 [node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("2_5e083")
 max_speed = 100
 acceleration = 800
 friction = 300
-metadata/_edit_group_ = true
 
 [node name="mayor-idle-animation2" parent="." instance=ExtResource("2_ft6p2")]
 texture_filter = 3
@@ -68,13 +111,21 @@ frame_progress = 0.191737
 
 [node name="mayor_walk_right2" parent="." instance=ExtResource("4_2hqid")]
 texture_filter = 3
+position = Vector2(0, 2)
 scale = Vector2(1.5, 1.5)
 frame_progress = 0.937029
 
 [node name="mayor_walk_left2" parent="." instance=ExtResource("5_ageb0")]
 texture_filter = 3
+position = Vector2(0, 2)
 scale = Vector2(1.5, 1.5)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 5)
 shape = SubResource("CapsuleShape2D_l7yvk")
+
+[node name="mayor_walk_middleF" parent="." instance=ExtResource("5_oq17p")]
+texture_filter = 3
+position = Vector2(0, 3)
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_fcv4t")
