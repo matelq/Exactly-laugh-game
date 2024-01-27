@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 signal collided_with_staticBody
+signal damage_taken(value)
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -28,3 +29,6 @@ func process_collisions():
 		var col = get_slide_collision(i)
 		if col.get_collider() is StaticBody2D:
 			collided_with_staticBody.emit()
+
+func take_damage(damage):
+	damage_taken.emit(damage)

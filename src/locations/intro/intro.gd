@@ -31,3 +31,9 @@ func show_frame5():
 
 func end_dialogue():
 	get_tree().change_scene_to_file("res://src/locations/apartment/apartment.tscn")
+
+func play_tv_ost():
+	$SoundrackTV.play()
+
+func _on_soundrack_tv_finished():
+	play_tv_ost()

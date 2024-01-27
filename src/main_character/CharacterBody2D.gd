@@ -64,11 +64,12 @@ func handle_player_animations():
 			$mayor_walk_middleF.scale.x = abs($mayor_walk_middleF.scale.x)
 			$mayor_walk_middleF/HitBox/CollisionShape2D.disabled = false
 			show_play_animation($mayor_walk_middleF)
-			$mayor_walk_middleF/HitBox/CollisionShape2D.disabled = true
 		elif (Input.is_action_pressed("leftF")):
 			$mayor_walk_middleF.scale.x = -abs($mayor_walk_middleF.scale.x)
+			$mayor_walk_middleF/HitBox/CollisionShape2D.disabled = false
 			show_play_animation($mayor_walk_middleF)
 		elif not is_animation_stopped:
+			$mayor_walk_middleF/HitBox/CollisionShape2D.disabled = true
 			show_play_animation($"mayor-idle-animation2")
 		return
 	
