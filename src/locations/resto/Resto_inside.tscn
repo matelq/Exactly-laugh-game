@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://u7ojfdl2lj2t"]
+[gd_scene load_steps=26 format=3 uid="uid://u7ojfdl2lj2t"]
 
 [ext_resource type="Script" path="res://src/locations/resto/Resto_inside.gd" id="1_4fev4"]
 [ext_resource type="Texture2D" uid="uid://c0oewyfo6rsw" path="res://assets/locations/Resto2.0/restogood/toilet_bottom.png" id="1_g2467"]
