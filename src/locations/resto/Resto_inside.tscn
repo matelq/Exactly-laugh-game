@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://u7ojfdl2lj2t"]
+[gd_scene load_steps=37 format=3 uid="uid://u7ojfdl2lj2t"]
 
 [ext_resource type="Script" path="res://src/locations/resto/Resto_inside.gd" id="1_4fev4"]
 [ext_resource type="Texture2D" uid="uid://c0oewyfo6rsw" path="res://assets/locations/Resto2.0/restogood/toilet_bottom.png" id="1_g2467"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://bdjcyq2vrhnnh" path="res://assets/locations/Resto2.0/restogood/door_closed.png" id="5_qbtke"]
 [ext_resource type="PackedScene" uid="uid://b5fyhefvmho62" path="res://src/puzzle/code.tscn" id="9_fen87"]
 [ext_resource type="Texture2D" uid="uid://dejbnmx84b3j4" path="res://src/locations/resto/80cb50c0aca3d49c70e6f5fc2b31124f.png" id="11_5h1t8"]
+[ext_resource type="AudioStream" uid="uid://bk4d04lis0m87" path="res://assets/ost/restaurant.wav" id="12_mbfn3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3biyt"]
 size = Vector2(128, 19.5)
@@ -373,6 +374,11 @@ offset_bottom = 1024.0
 scale = Vector2(1.16, 1.16)
 texture = ExtResource("11_5h1t8")
 flip_h = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_mbfn3")
+volume_db = -12.17
+autoplay = true
 
 [connection signal="body_entered" from="exit_to_parking" to="." method="_on_exit_to_parking_body_entered"]
 [connection signal="body_exited" from="exit_to_parking" to="." method="_on_exit_to_parking_body_exited"]

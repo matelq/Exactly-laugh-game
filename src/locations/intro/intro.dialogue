@@ -5,6 +5,7 @@
 do flip_noise()
 Ящик: ~~Бзззз...
 do flip_noise()
+do off_noise()
 Ящик: ...овостями на сегодня все. До встречи на следующей неделе!
 do show_frame1()
 do play_tv_ost()

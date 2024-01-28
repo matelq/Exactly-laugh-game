@@ -3,6 +3,7 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$shipenie.play()
 	var resource = load("res://src/locations/intro/intro.dialogue")
 	DialogueManager.show_example_dialogue_balloon(resource)
 
@@ -37,3 +38,7 @@ func play_tv_ost():
 
 func _on_soundrack_tv_finished():
 	play_tv_ost()
+
+func off_noise():
+	$shipenie.stop()
+	pass

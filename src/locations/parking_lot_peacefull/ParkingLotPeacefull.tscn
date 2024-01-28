@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://cvunugjskwwl3"]
+[gd_scene load_steps=12 format=3 uid="uid://cvunugjskwwl3"]
 
 [ext_resource type="Script" path="res://src/locations/parking_lot_peacefull/ParkingLotPeacefull.gd" id="1_0nkht"]
 [ext_resource type="Texture2D" uid="uid://bkbo04fh1wrb" path="res://assets/locations/parking_lot/bg.png" id="1_0syrb"]
 [ext_resource type="PackedScene" uid="uid://bunr2xs701qoj" path="res://src/main_character/character.tscn" id="2_51ety"]
 [ext_resource type="PackedScene" uid="uid://dm1412p21cw0q" path="res://src/camera/camera.tscn" id="3_615gk"]
+[ext_resource type="AudioStream" uid="uid://o7yknk8spsy4" path="res://assets/ost/home.wav" id="5_7p6yd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s825q"]
 size = Vector2(1219, 38)
@@ -91,6 +92,10 @@ offset_bottom = 643.0
 scale = Vector2(0.640005, 0.640005)
 text = "Enter..."
 label_settings = SubResource("LabelSettings_i2fo7")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_7p6yd")
+autoplay = true
 
 [connection signal="body_entered" from="logic_colliders/enter_resto" to="." method="_on_enter_resto_body_entered"]
 [connection signal="body_exited" from="logic_colliders/enter_resto" to="." method="_on_enter_resto_body_exited"]

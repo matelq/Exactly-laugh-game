@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://bidmvslxmd01k"]
+[gd_scene load_steps=12 format=3 uid="uid://bidmvslxmd01k"]
 
 [ext_resource type="Script" path="res://src/Test_scene/Test_scene.gd" id="1_3peqn"]
 [ext_resource type="PackedScene" uid="uid://bunr2xs701qoj" path="res://src/main_character/character.tscn" id="1_p46vo"]
 [ext_resource type="PackedScene" uid="uid://cukuba1f4tyor" path="res://src/locations/start_location/start_location.tscn" id="2_x3xir"]
 [ext_resource type="PackedScene" uid="uid://dm1412p21cw0q" path="res://src/camera/camera.tscn" id="2_x7b0j"]
 [ext_resource type="PackedScene" uid="uid://ctswvmv6lqc8f" path="res://src/locations/parallax/parallax.tscn" id="4_w4m52"]
+[ext_resource type="AudioStream" uid="uid://o7yknk8spsy4" path="res://assets/ost/home.wav" id="6_dj8my"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pq6na"]
 size = Vector2(1934, 33)
@@ -86,6 +87,10 @@ offset_bottom = 441.0
 scale = Vector2(0.44, 0.44)
 text = "Enter..."
 label_settings = SubResource("LabelSettings_vyhwb")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_dj8my")
+autoplay = true
 
 [connection signal="body_entered" from="logic_colliders/to_parkking_lot" to="." method="_on_to_parkking_lot_body_entered"]
 [connection signal="body_exited" from="logic_colliders/to_parkking_lot" to="." method="_on_to_parkking_lot_body_exited"]
