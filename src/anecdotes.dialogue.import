@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://cvhm3n7xkasie"
+path="res://.godot/imported/anecdotes.dialogue-86c003b4303e8f48f583e7dd5d9c9853.tres"
+
+[deps]
+
+source_file="res://src/anecdotes.dialogue"
+dest_files=["res://.godot/imported/anecdotes.dialogue-86c003b4303e8f48f583e7dd5d9c9853.tres"]
+
+[params]
+
+defaults=true

@@ -1,17 +1,104 @@
-[gd_scene load_steps=2 format=3 uid="uid://dnwqcij2nfljk"]
+[gd_scene load_steps=6 format=3 uid="uid://dnwqcij2nfljk"]
 
 [ext_resource type="Script" path="res://src/game_menu/anecdotes.gd" id="1_kek5x"]
+[ext_resource type="PackedScene" uid="uid://dm1412p21cw0q" path="res://src/camera/camera.tscn" id="2_5ugpl"]
+[ext_resource type="FontFile" uid="uid://d3eocon0jwqlt" path="res://assets/fonts/OpenType-TT/Sweater Winter 1.0.ttf" id="2_wacqi"]
+[ext_resource type="AudioStream" uid="uid://8kvh353e8yit" path="res://assets/ost/muzhskoj-smeh.mp3" id="4_f0m41"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_soi44"]
+font = ExtResource("2_wacqi")
 
 [node name="Anecdotes" type="Node2D"]
 script = ExtResource("1_kek5x")
+aneci_speed = 50
 
 [node name="Anecdore" type="Label" parent="."]
-offset_left = 19.0
-offset_top = 34.0
-offset_right = 1130.0
-offset_bottom = 189.0
-text = "Попали на остров с папуасами скуф, фембой и альтушка, выходит вождь и говорит им:
--Вы зашли в старый анекдот, мы не способны понять парадигму новых вещей и темпа течения времени, чтобы понятливо высмеивать современные тренды, но если что - можете всегда засунуть себе анус в ананас."
+offset_top = 700.0
+offset_right = 1152.0
+offset_bottom = 10700.0
+text = "                                        
+Адам потерял ребро и получил девушку.
+Потом он потерял второе, и девушка стала не нужна
+                                          
+
+Поймал еврей золотую рыбку она:
+- Еврей?
+- Таки да
+- Лучше зажарь
+                                          
+
+— Алло, Новодевичий монастырь?
+— Да
+— Новые девочки есть?
+                                          
+
+Беременные лошади бегают быстрее 
+ ...
+Потому что у них больше лошадиных сил
+                                          
+
+Пришёл парень ночью в магазин, пиво покупать. 
+- Мы после 11 не продаём 
+- Но мне 10
+                                          
+
+Загадка: 
+В жопу не лезет и не жужжит? 
+ 
+Советский аппарат для жужжания в жопе
+                                          
+
+Маленький мальчик загадал желание: 
+\"Хочу, чтобы у меня каждый день был День Рождения\". 
+Через два месяца он состарился и умер.
+                                          
+
+— Мэри, кто этот парень? 
+— Это Джонни по прозвищу \"Туз червей\". 
+— Потому что он крутой сердцеед? 
+— Нет, потому что у него глисты.
+                                          
+
+Сидит девушка с парнем в ресторане
+- Ты у меня такой зайка)
+- Да какой я тебе зайка? Я защитник, я медведь!
+- А докажи)
+Парень вышел из ресторана, сел в машину и сгорел нахуй
+                                          
+
+Cидит Карлсон и грустит. 
+Походит мальчик и говорит: 
+— Чего грустишь? 
+— Да вот, пропеллер с штанами улетел. 
+— Да и хуй с ними 
+— Да, и хуй с ними…
+                                          
+
+— Вовочка, ты знаешь что такое ренессанс?
+— Не знаю, Михаил Васильевич, но у меня ещё после артхауса жопа болит
+                                          
+
+-Тебя когда-нибудь будили минетом? 
+-Да 
+-И как ты отреагировал, что сказал? 
+-А говорить я не мог
+                                          
+
+— Как нужно ходить в шахматах, чтобы создать морально-психологический дискомфорт сопернику? 
+ 
+— Под себя.
+                                          
+
+— Меня в честь прадедушки назвали. Теперь мучаюсь. 
+— И как тебя зовут? 
+— Прадедушка.
+                                          
+
+Попали на остров с папуасами скуф, фембой и альтушка, выходит вождь и говорит им:
+-Вы зашли в старый анекдот, мы не способны понять парадигму новых вещей и темпа течения времени, чтобы понятливо высмеивать современные тренды, но если что - можете всегда засунуть себе анус в ананас.
+                                          "
+label_settings = SubResource("LabelSettings_soi44")
+horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="BackButton" type="Button" parent="."]
@@ -28,5 +115,21 @@ offset_right = 1136.0
 offset_bottom = 636.0
 text = "Так не смежно же"
 
+[node name="Camera2" parent="." node_paths=PackedStringArray("followNode") instance=ExtResource("2_5ugpl")]
+limit_left = 0
+limit_top = 0
+limit_right = 1152
+limit_bottom = 648
+editor_draw_limits = true
+followNode = NodePath("../BodyToFollow")
+
+[node name="BodyToFollow" type="CharacterBody2D" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_f0m41")
+volume_db = -20.0
+autoplay = true
+
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="NextButton" to="." method="_on_next_button_pressed"]
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]
