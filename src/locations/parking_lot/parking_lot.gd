@@ -61,6 +61,8 @@ func _on_enemy_damage_taken(value):
 	curr_dialogue += 1
 	
 func next_scene():
+	get_node("/root/GlobalContext").is_code_active_lock = true
+	get_tree().change_scene_to_file("res://src/locations/resto/Resto_inside.tscn") 
 	pass
 
 func _on_intro_finished():

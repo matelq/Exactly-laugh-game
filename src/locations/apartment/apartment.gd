@@ -28,6 +28,7 @@ func _process(delta):
 		$tip_to_enter.show()
 		if Input.is_action_just_pressed("ui_accept"):
 			# next location progress
+			RenderingServer.set_default_clear_color(Color(0.161, 0, 0.165))
 			get_tree().change_scene_to_file("res://src/Test_scene/Test_scene.tscn") 
 			print("YOU SHOULD TELEPORT!")
 	else:
@@ -60,10 +61,12 @@ func _on_kitchen_to_tv_room_body_entered(body):
 	#$Camera.limit_right = 1024
 	$Player.velocity = Vector2.ZERO
 	$Player.isLeftRight = false
+	
 
 
 func _on_kitchen_exit_body_entered(body):
 	player_can_exit_kitchen = true
+	
 	pass # Replace with function body.
 
 

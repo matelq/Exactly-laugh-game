@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://u7ojfdl2lj2t"]
+[gd_scene load_steps=36 format=3 uid="uid://u7ojfdl2lj2t"]
 
 [ext_resource type="Script" path="res://src/locations/resto/Resto_inside.gd" id="1_4fev4"]
 [ext_resource type="Texture2D" uid="uid://c0oewyfo6rsw" path="res://assets/locations/Resto2.0/restogood/toilet_bottom.png" id="1_g2467"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://c61mg57sh6gd8" path="res://assets/locations/Resto2.0/restogood/door_opened.png" id="4_cm6sm"]
 [ext_resource type="Texture2D" uid="uid://bdjcyq2vrhnnh" path="res://assets/locations/Resto2.0/restogood/door_closed.png" id="5_qbtke"]
 [ext_resource type="PackedScene" uid="uid://b5fyhefvmho62" path="res://src/puzzle/code.tscn" id="9_fen87"]
+[ext_resource type="Texture2D" uid="uid://dejbnmx84b3j4" path="res://src/locations/resto/80cb50c0aca3d49c70e6f5fc2b31124f.png" id="11_5h1t8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3biyt"]
 size = Vector2(128, 19.5)
@@ -63,7 +64,7 @@ size = Vector2(33.5, 27)
 size = Vector2(667, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0h1h0"]
-size = Vector2(33, 14)
+size = Vector2(33, 71)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v0w32"]
 size = Vector2(46, 30)
@@ -77,6 +78,12 @@ font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_th3y4"]
 size = Vector2(192, 26)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1h1w2"]
+size = Vector2(44, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7kxj7"]
+size = Vector2(30, 20)
 
 [node name="Resto_inside" type="Node2D"]
 script = ExtResource("1_4fev4")
@@ -286,19 +293,24 @@ position = Vector2(414.5, 985)
 shape = SubResource("RectangleShape2D_1jsq4")
 
 [node name="Camera" parent="." node_paths=PackedStringArray("followNode") instance=ExtResource("3_618lp")]
+limit_left = -10000
+limit_top = -10000
+limit_right = 10000
+limit_bottom = 10000
+editor_draw_limits = true
 followNode = NodePath("../CharacterBody2D")
 
 [node name="door_body" type="StaticBody2D" parent="."]
 metadata/_edit_group_ = true
 
 [node name="door_collider" type="CollisionShape2D" parent="door_body"]
-position = Vector2(-239, -52)
+position = Vector2(-239, -80.5)
 shape = SubResource("RectangleShape2D_0h1h0")
 
 [node name="Code" parent="." instance=ExtResource("9_fen87")]
-visible = false
 z_index = 2
-position = Vector2(-719, -549)
+position = Vector2(1610, 532)
+scale = Vector2(0.5, 0.5)
 
 [node name="door_dialog" type="Area2D" parent="."]
 
@@ -332,6 +344,36 @@ position = Vector2(1, -38)
 shape = SubResource("RectangleShape2D_th3y4")
 debug_color = Color(0.996078, 0, 0.192157, 0.419608)
 
+[node name="code_camera" type="CharacterBody2D" parent="."]
+position = Vector2(1837, 765)
+
+[node name="sink_area" type="Area2D" parent="."]
+
+[node name="sink_collider" type="CollisionShape2D" parent="sink_area"]
+position = Vector2(-317, -129)
+shape = SubResource("RectangleShape2D_1h1w2")
+debug_color = Color(0.992157, 0, 0.231373, 0.419608)
+
+[node name="toilet_area" type="Area2D" parent="."]
+position = Vector2(-242, -135)
+
+[node name="toilet_collider" type="CollisionShape2D" parent="toilet_area"]
+position = Vector2(2, 5)
+shape = SubResource("RectangleShape2D_7kxj7")
+disabled = true
+debug_color = Color(0.992157, 0, 0.266667, 0.419608)
+
+[node name="funnymanfollow" type="CharacterBody2D" parent="."]
+position = Vector2(-2159, 335)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -2735.0
+offset_right = -1711.0
+offset_bottom = 1024.0
+scale = Vector2(1.16, 1.16)
+texture = ExtResource("11_5h1t8")
+flip_h = true
+
 [connection signal="body_entered" from="exit_to_parking" to="." method="_on_exit_to_parking_body_entered"]
 [connection signal="body_exited" from="exit_to_parking" to="." method="_on_exit_to_parking_body_exited"]
 [connection signal="enter_button" from="Code" to="." method="_on_code_enter_button"]
@@ -339,3 +381,6 @@ debug_color = Color(0.996078, 0, 0.192157, 0.419608)
 [connection signal="body_exited" from="door_dialog" to="." method="_on_door_dialog_body_exited"]
 [connection signal="body_entered" from="enemy_dialog" to="." method="_on_enemy_dialog_body_entered"]
 [connection signal="body_exited" from="enemy_dialog" to="." method="_on_enemy_dialog_body_exited"]
+[connection signal="body_entered" from="sink_area" to="." method="_on_sink_area_body_entered"]
+[connection signal="body_exited" from="sink_area" to="." method="_on_sink_area_body_exited"]
+[connection signal="body_entered" from="toilet_area" to="." method="_on_toilet_area_body_entered"]
