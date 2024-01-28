@@ -35,12 +35,12 @@ scale = Vector2(2.1, 2.1)
 
 [node name="Intro" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_7wiab")
-volume_db = -6.0
+volume_db = -22.0
 autoplay = true
 
 [node name="FightTheme" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_wa3m7")
-volume_db = -6.0
+volume_db = -22.0
 
 [connection signal="collided_with_staticBody" from="CharacterBody2D" to="." method="_on_character_body_2d_collided_with_static_body"]
 [connection signal="collided_with_staticBody" from="Enemy" to="." method="_on_enemy_collided_with_static_body"]
