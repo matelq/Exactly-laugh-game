@@ -1,10 +1,10 @@
 extends Node2D
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$CharacterBody2D.do_the_idle()
 	$CharacterBody2D.handle_user_input(false)
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -31,12 +31,42 @@ func _on_enemy_collided_with_static_body():
 
 const Ballon = preload("res://src/locations/parking_lot/balloon.tscn")
 
+
+
 func start_dialogue():
+	var dialogue = load("res://src/locations/parking_lot/parking_lot.dialogue")
 	var ballon: Node = Ballon.instantiate()
 	get_tree().current_scene.add_child(ballon)
-	var dialogue = load("res://src/locations/parking_lot/parking_lot.dialogue")
 	ballon.start(dialogue, "start")
 
 func start_fight():
 	await get_tree().create_timer(0.1).timeout
 	$CharacterBody2D.handle_user_input(true)
+
+var curr_dialogue = 1
+
+func _on_enemy_damage_taken(value):
+	$CharacterBody2D.handle_user_input(false)
+	var dialogue = load("res://src/locations/parking_lot/parking_lot.dialogue")
+	var ballon: Node = Ballon.instantiate()
+	get_tree().current_scene.add_child(ballon)
+	var pos = ""
+	if curr_dialogue == 1:
+		pos = "First"
+	elif curr_dialogue == 2:
+		pos = "Second"
+	elif curr_dialogue == 3:
+		pos = "Third"
+	ballon.start(dialogue, pos)
+	curr_dialogue += 1
+	
+func next_scene():
+	get_node("/root/GlobalContext").is_code_active_lock = true
+	get_tree().change_scene_to_file("res://src/locations/resto/Resto_inside.tscn") 
+	pass
+
+func _on_intro_finished():
+	$FightTheme.play()
+
+func _on_fight_theme_finished():
+	$FightTheme.play()

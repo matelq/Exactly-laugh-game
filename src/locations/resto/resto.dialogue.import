@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://2pki72m5jllm"
+path="res://.godot/imported/resto.dialogue-bbee1cbaaba924517150ec0b39b06326.tres"
+
+[deps]
+
+source_file="res://src/locations/resto/resto.dialogue"
+dest_files=["res://.godot/imported/resto.dialogue-bbee1cbaaba924517150ec0b39b06326.tres"]
+
+[params]
+
+defaults=true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dplhqvy8o1uh0"]
+[gd_scene load_steps=11 format=3 uid="uid://dplhqvy8o1uh0"]
 
 [ext_resource type="Script" path="res://src/locations/intro/intro.gd" id="1_v1lvy"]
 [ext_resource type="Texture2D" uid="uid://bp8778eaprjj3" path="res://assets/locations/intro/noise.jpg" id="2_tucbs"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://c8476iek54fpv" path="res://assets/locations/intro/istockphoto-1412460339-640x640.jpg" id="4_huwmr"]
 [ext_resource type="Texture2D" uid="uid://dnba7fpm1md5r" path="res://assets/locations/intro/fantasy_aristocracy_portraits_8b84d2f0.png" id="5_j1y70"]
 [ext_resource type="Texture2D" uid="uid://nuqk6wcmanlr" path="res://assets/locations/intro/fantasy_aristocracy_portraits_e5a21b1a.png" id="6_essye"]
+[ext_resource type="AudioStream" uid="uid://bhw36pwylei8r" path="res://assets/ost/TV.wav" id="9_vgmir"]
+[ext_resource type="AudioStream" uid="uid://l0wn5id360sa" path="res://assets/ost/sound_17968.mp3" id="10_ly4l4"]
 
 [node name="Intro" type="Node2D"]
 script = ExtResource("1_v1lvy")
@@ -55,3 +57,12 @@ texture = ExtResource("3_rnxgk")
 position = Vector2(341.212, 220)
 scale = Vector2(4.30391, 3.80055)
 texture = ExtResource("2_tucbs")
+
+[node name="SoundrackTV" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_vgmir")
+
+[node name="shipenie" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_ly4l4")
+autoplay = true
+
+[connection signal="finished" from="SoundrackTV" to="." method="_on_soundrack_tv_finished"]

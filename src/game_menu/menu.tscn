@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://c28drt2itpnqu"]
+[gd_scene load_steps=5 format=3 uid="uid://c28drt2itpnqu"]
 
 [ext_resource type="Script" path="res://src/game_menu/menu.gd" id="1_5v26a"]
 [ext_resource type="Texture2D" uid="uid://cl6wugqev65i2" path="res://assets/menu/onlytheocean-.jpg" id="2_lsbb6"]
 [ext_resource type="Theme" uid="uid://c28v14rnpfts1" path="res://assets/themes/menu.tres" id="3_yr3ct"]
+[ext_resource type="AudioStream" uid="uid://fdoma8ho2o8o" path="res://assets/ost/SAD.wav" id="4_oogx2"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -51,6 +52,11 @@ offset_bottom = 176.0
 theme = ExtResource("3_yr3ct")
 text = "ТОРГОВЕЦ С МЕХОМ"
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_oogx2")
+autoplay = true
+
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]

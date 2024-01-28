@@ -1,17 +1,32 @@
-[gd_scene load_steps=6 format=3 uid="uid://bidmvslxmd01k"]
+[gd_scene load_steps=12 format=3 uid="uid://bidmvslxmd01k"]
 
+[ext_resource type="Script" path="res://src/Test_scene/Test_scene.gd" id="1_3peqn"]
 [ext_resource type="PackedScene" uid="uid://bunr2xs701qoj" path="res://src/main_character/character.tscn" id="1_p46vo"]
 [ext_resource type="PackedScene" uid="uid://cukuba1f4tyor" path="res://src/locations/start_location/start_location.tscn" id="2_x3xir"]
 [ext_resource type="PackedScene" uid="uid://dm1412p21cw0q" path="res://src/camera/camera.tscn" id="2_x7b0j"]
 [ext_resource type="PackedScene" uid="uid://ctswvmv6lqc8f" path="res://src/locations/parallax/parallax.tscn" id="4_w4m52"]
+[ext_resource type="AudioStream" uid="uid://o7yknk8spsy4" path="res://assets/ost/home.wav" id="6_dj8my"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pq6na"]
 size = Vector2(1934, 33)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_25fux"]
+size = Vector2(20, 335)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pyq78"]
+size = Vector2(21, 321)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q1chd"]
+size = Vector2(68, 127)
+
+[sub_resource type="LabelSettings" id="LabelSettings_vyhwb"]
+font_size = 24
+
 [node name="TestScene" type="Node2D"]
+script = ExtResource("1_3peqn")
 
 [node name="Character" parent="." instance=ExtResource("1_p46vo")]
-position = Vector2(35, 356)
+position = Vector2(352, 350)
 
 [node name="Start_location" parent="." instance=ExtResource("2_x3xir")]
 texture_filter = 3
@@ -27,6 +42,19 @@ shape = SubResource("RectangleShape2D_pq6na")
 modulate = Color(0, 0, 0, 1)
 self_modulate = Color(0, 0, 0, 1)
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Start_location/StaticBody2D2"]
+position = Vector2(5, -166.5)
+shape = SubResource("RectangleShape2D_25fux")
+debug_color = Color(0, 0.6, 0.705882, 0.419608)
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Start_location"]
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0, 0, 0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Start_location/StaticBody2D3"]
+position = Vector2(1929.5, -160.5)
+shape = SubResource("RectangleShape2D_pyq78")
+
 [node name="Camera" parent="." node_paths=PackedStringArray("followNode") instance=ExtResource("2_x7b0j")]
 position = Vector2(286, 274)
 zoom = Vector2(2, 2)
@@ -36,7 +64,33 @@ limit_right = 1935
 limit_bottom = 432
 editor_draw_limits = true
 followNode = NodePath("../Character")
-limits = [0, 0, 1900, 430]
 
 [node name="Parallax" parent="." instance=ExtResource("4_w4m52")]
 position = Vector2(-2, 400)
+
+[node name="logic_colliders" type="Node2D" parent="."]
+
+[node name="to_parkking_lot" type="Area2D" parent="logic_colliders"]
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0, 0, 0, 1)
+
+[node name="to_parkking_lot_collider" type="CollisionShape2D" parent="logic_colliders/to_parkking_lot"]
+position = Vector2(1876, 332.5)
+shape = SubResource("RectangleShape2D_q1chd")
+debug_color = Color(1, 0.121569, 0.160784, 0.427451)
+
+[node name="progress_label" type="Label" parent="."]
+offset_left = 1854.0
+offset_top = 407.0
+offset_right = 1936.0
+offset_bottom = 441.0
+scale = Vector2(0.44, 0.44)
+text = "Enter..."
+label_settings = SubResource("LabelSettings_vyhwb")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_dj8my")
+autoplay = true
+
+[connection signal="body_entered" from="logic_colliders/to_parkking_lot" to="." method="_on_to_parkking_lot_body_entered"]
+[connection signal="body_exited" from="logic_colliders/to_parkking_lot" to="." method="_on_to_parkking_lot_body_exited"]
