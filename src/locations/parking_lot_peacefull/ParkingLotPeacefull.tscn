@@ -95,6 +95,7 @@ label_settings = SubResource("LabelSettings_i2fo7")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_7p6yd")
+volume_db = -20.0
 autoplay = true
 
 [connection signal="body_entered" from="logic_colliders/enter_resto" to="." method="_on_enter_resto_body_entered"]

@@ -90,7 +90,9 @@ label_settings = SubResource("LabelSettings_vyhwb")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_dj8my")
+volume_db = -20.0
 autoplay = true
 
 [connection signal="body_entered" from="logic_colliders/to_parkking_lot" to="." method="_on_to_parkking_lot_body_entered"]
 [connection signal="body_exited" from="logic_colliders/to_parkking_lot" to="." method="_on_to_parkking_lot_body_exited"]
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]

@@ -189,6 +189,7 @@ followNode = NodePath("../Player")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_utcp5")
+volume_db = -15.0
 autoplay = true
 
 [node name="tip_to_enter" type="Label" parent="."]

@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://b5fyhefvmho62"]
+[gd_scene load_steps=4 format=3 uid="uid://b5fyhefvmho62"]
 
 [ext_resource type="Script" path="res://src/puzzle/Code.gd" id="1_vpsi5"]
 [ext_resource type="Texture2D" uid="uid://cfb5rmdvl0yvd" path="res://assets/code/code.jpg" id="2_maf2t"]
+[ext_resource type="FontFile" uid="uid://db1lvtqvslk0s" path="res://assets/fonts/PfArmaFive.ttf" id="3_eslw6"]
 
 [node name="Code" type="Node2D"]
 script = ExtResource("1_vpsi5")
@@ -86,6 +87,7 @@ offset_left = -214.0
 offset_top = -373.0
 offset_right = 197.0
 offset_bottom = -267.0
+theme_override_fonts/font = ExtResource("3_eslw6")
 theme_override_font_sizes/font_size = 60
 context_menu_enabled = false
 shortcut_keys_enabled = false

@@ -377,7 +377,7 @@ flip_h = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_mbfn3")
-volume_db = -12.17
+volume_db = -20.0
 autoplay = true
 
 [connection signal="body_entered" from="exit_to_parking" to="." method="_on_exit_to_parking_body_entered"]
