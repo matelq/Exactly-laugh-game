@@ -15,7 +15,7 @@ The main character is a black laughter merchant.
   1) Install Windows 10
   2) Unpack the archive with the game
   3) Play
-- 
+## Rus
   1) Установить Windows 10
   2) Распаковать архив с игрой
   3) Играть
