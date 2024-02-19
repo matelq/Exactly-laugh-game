@@ -12,13 +12,13 @@ The main character is a black laughter merchant.
 Главный герой – черный торговец смехом. 
 
 # Installation Instructions
-1)Install Windows 10
-2)Unpack the archive with the game
-3)Play
+  1)Install Windows 10
+  2)Unpack the archive with the game
+  3)Play
 
-1)Установить Windows 10
-2)Распаковать архив с игрой
-3)Играть
+  1)Установить Windows 10
+  2)Распаковать архив с игрой
+  3)Играть
 
 # About
 The action takes place in a world where laughter has been banned for many years. Almost all people have forgotten how to laugh, and most of them grew up never laughing.
