@@ -1,6 +1,7 @@
 # No laugh left behind
 
 ![plot](https://ggjv4.s3.us-west-1.amazonaws.com/files/styles/sidebar_full/s3/games/2024/807014/featured/%D0%91%D0%B5%D0%B7%D1%8B%D0%BC%D1%8F%D0%BD%D0%BD%D1%8B%D0%B9.png?VersionId=E5GymiO87JHSmSvr3unwGJgdf3sA_s0o&itok=2XNsTjeK)
+
 [Игра](https://globalgamejam.org/games/2024/no-laugh-left-behind-1) создана в процессе участия в Global Game Jam 2024 на площадке ЮУрГУ.
 
 The action takes place in a world where laughter has been banned for many years. Almost all people have forgotten how to laugh, and most of them grew up never laughing.
