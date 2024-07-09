@@ -1,6 +1,6 @@
 # Importality
 
-[![en](https://img.shields.io/badge/lang-en-red.svg)](README.md)
+[![en](Лонг%20на%20жизнь/Магистратура/Портфолио%20Github/Exactly-laugh-game/README.md)
 [![en](https://img.shields.io/badge/lang-ru-green.svg)](README.ru.md)
 
 ![art for repo 2](https://github.com/nklbdev/godot-4-importality/assets/7024016/f44d98b1-116c-493e-8108-2138b1bddd61)
