@@ -1,11 +1,6 @@
 # No laugh left behind
 
 ![plot](https://ggjv4.s3.us-west-1.amazonaws.com/files/styles/sidebar_full/s3/games/2024/807014/featured/%D0%91%D0%B5%D0%B7%D1%8B%D0%BC%D1%8F%D0%BD%D0%BD%D1%8B%D0%B9.png?VersionId=E5GymiO87JHSmSvr3unwGJgdf3sA_s0o&itok=2XNsTjeK)
-<<<<<<< Updated upstream
-
-[Игра](https://globalgamejam.org/games/2024/no-laugh-left-behind-1) создана в процессе участия в Global Game Jam 2024 на площадке ЮУрГУ.
-=======
->>>>>>> Stashed changes
 
 [Игра](https://globalgamejam.org/games/2024/no-laugh-left-behind-1) создана в процессе участия в Global Game Jam 2024 на площадке ЮУрГУ.
 ## English
@@ -34,20 +29,20 @@ The main character is a black laughter merchant.
 # Оригинальный саундтрек
 
 #### Заглавная тема
-![f](SAD.wav)
+![f](./assets/ost/SAD.wav)
 #### Интро
-![3](home.wav)
+![3](./assets/ost/home.wav)
 #### Ресторан
-![g](restaurant.wav)
+![g](./assets/ost/restaurant.wav)
 #### Flex intro
-![[flex_intro.wav]]
+![ffff](./assets/ost/flex_intro.wav)
 И многие другие... которые можно услышать в процессе игры
 # Скриншоты игры
 
-![f](img1.png)
-![f](img2.png)
-![f](img3.png)
-![f](img4.png)
-![f](img5.png)
-![f](img6.png)
-![f](img7.png)
+![f](./imgs/img1.png)
+![f](imgs/img2.png)
+![f](./imgs/img3.png)
+![f](./imgs/img4.png)
+![f](./imgs/img5.png)
+![f](./imgs/img6.png)
+![f](./imgs/img7.png)
