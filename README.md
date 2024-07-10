@@ -1,8 +1,11 @@
 # No laugh left behind
 
 ![plot](https://ggjv4.s3.us-west-1.amazonaws.com/files/styles/sidebar_full/s3/games/2024/807014/featured/%D0%91%D0%B5%D0%B7%D1%8B%D0%BC%D1%8F%D0%BD%D0%BD%D1%8B%D0%B9.png?VersionId=E5GymiO87JHSmSvr3unwGJgdf3sA_s0o&itok=2XNsTjeK)
+<<<<<<< Updated upstream
 
 [Игра](https://globalgamejam.org/games/2024/no-laugh-left-behind-1) создана в процессе участия в Global Game Jam 2024 на площадке ЮУрГУ.
+=======
+>>>>>>> Stashed changes
 
 [Игра](https://globalgamejam.org/games/2024/no-laugh-left-behind-1) создана в процессе участия в Global Game Jam 2024 на площадке ЮУрГУ.
 ## English
@@ -11,7 +14,6 @@ They play a children's horror story on TV: three brothers catch a pike on the ri
 
 The main character is a black laughter merchant.
 
-## Rus
 ## Русский
 
 Действия происходят в мире, где смех запрещен уже множество лет. Почти все люди разучились смеяться, а большая часть выросла никогда не смеявшись.
@@ -24,7 +26,6 @@ The main character is a black laughter merchant.
   1) Install Windows 10
   2) Unpack the archive with the game
   3) Play
-## Rus
 ## Русский
   1) Установить Windows 10
   2) Распаковать архив с игрой
