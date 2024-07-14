@@ -40,10 +40,10 @@ The main character is a black laughter merchant.
 # Скриншоты игры
 
 ![f](./imgs/img1.png)
-#### Тарантиновские диалоги
 ![f](imgs/img2.png)
 ![f](./imgs/img3.png)
 ![f](./imgs/img4.png)
+#### Тарантиновские диалоги
 ![f](./imgs/img5.png)
 ![f](./imgs/img6.png)
 ![f](./imgs/img7.png)
